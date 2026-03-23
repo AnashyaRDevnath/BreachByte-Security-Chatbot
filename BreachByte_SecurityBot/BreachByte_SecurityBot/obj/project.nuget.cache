@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lZ9Z2VbE4JU=",
+  "dgSpecHash": "Z7chzS5dyZc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Anash\\.nuget\\packages\\system.windows.extensions\\10.0.5\\system.windows.extensions.10.0.5.nupkg.sha512"
+  ],
   "logs": []
 }

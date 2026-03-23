@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace BreachByte_SecurityBot
 {
     internal class UserInterface
     {
         /*
-         METHOD START_GREETING
-    SET Text_Color to Cyan
-    DISPLAY "Hello! I am your Cybersecurity Awareness Bot."
-    
-    SET Valid_Name to FALSE
+       SET Valid_Name to FALSE
     WHILE Valid_Name is FALSE
         DISPLAY "What is your name?"
         GET User_Input
@@ -36,5 +33,34 @@ METHOD TYPING_EFFECT (Give this method a Sentence)
     MOVE to the next line
 END METHOD
          */
+
+        //Display ascii art logo
+        public void DisplayLogo ()
+        {
+            string logo = @"
+
+                                                                                                                                                                                                                    
+,-----.                         ,--.    ,-----.          ,--.             ,---.                         ,--. ,--.                                                                                                   
+|  |) /_,--.--.,---. ,--,--.,---|  ,---.|  |) /,--. ,--,-'  '-.,---.     '   .-' ,---. ,---,--.,--,--.--`--,-'  '-,--. ,--.                                                                                         
+|  .-.  |  .--| .-. ' ,-.  | .--|  .-.  |  .-.  \  '  /'-.  .-| .-. :    `.  `-.| .-. | .--|  ||  |  .--,--'-.  .-'\  '  /                                                                                          
+|  '--' |  |  \   --\ '-'  \ `--|  | |  |  '--' /\   '   |  | \   --.    .-'    \   --\ `--'  ''  |  |  |  | |  |   \   '                                                                                           
+`------'`--'   `----'`--`--'`---`--' `--`------.-'  /    `--'  `----'    `-----' `----'`---'`----'`--'  `--' `--' .-'  /                                                                                            
+ ,-----.       ,--.                    ,---.   `---'                 ,--. ,--.                ,---.               `---'                                         ,-----,--.             ,--. ,--.          ,--.      
+'  .--.,--. ,--|  |-. ,---.,--.--.    '   .-' ,---. ,---,--.,--,--.--`--,-'  '-,--. ,--.     /  O  \,--.   ,--.,--,--,--.--.,---.,--,--, ,---. ,---. ,---.     '  .--.|  ,---. ,--,--,-'  '-|  |-. ,---.,-'  '-.    
+|  |    \  '  /| .-. | .-. |  .--'    `.  `-.| .-. | .--|  ||  |  .--,--'-.  .-'\  '  /     |  .-.  |  |.'.|  ' ,-.  |  .--| .-. |      | .-. (  .-'(  .-'     |  |   |  .-.  ' ,-.  '-.  .-| .-. | .-. '-.  .-'    
+'  '--'\ \   ' | `-' \   --|  |       .-'    \   --\ `--'  ''  |  |  |  | |  |   \   '      |  | |  |   .'.   \ '-'  |  |  \   --|  ||  \   --.-'  `.-'  `)    '  '--'|  | |  \ '-'  | |  | | `-' ' '-' ' |  |      
+ `-----.-'  /   `---' `----`--'       `-----' `----'`---'`----'`--'  `--' `--' .-'  /       `--' `--'--'   '--'`--`--`--'   `----`--''--'`----`----'`----'      `-----`--' `--'`--`--' `--'  `---' `---'  `--'      
+       `---'                                                                   `---'                                                                                                                                
+            
+
+       ";
+
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine (logo);
+            Console.ResetColor();
+
+        }
+
+
     }
 }
