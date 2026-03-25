@@ -18,7 +18,7 @@
             //Ascii logo
             UserInterface logo = new UserInterface();
             logo.DisplayLogo();
-            Console.ReadLine();
+            logo.WelcomeUser(); 
 
         }
     }
