@@ -18,7 +18,11 @@
             //Ascii logo
             UserInterface logo = new UserInterface();
             logo.DisplayLogo();
-            logo.WelcomeUser(); 
+            string name =logo.WelcomeUser(); //reference 
+
+            //testing convo
+            BotBrain convo = new BotBrain();
+            convo.Conversation(name);
 
         }
     }

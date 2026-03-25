@@ -70,7 +70,7 @@ END METHOD
 
         }
 
-        public void WelcomeUser()
+        public string WelcomeUser()
         {
 
             Console.WriteLine("Hello, what's your name? ");
@@ -112,8 +112,25 @@ END METHOD
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(welcome);
-            Console.ResetColor( ); 
+            Console.ResetColor( );
+
+            return userName;
 
         }
+
+        //Typing effect
+        //cite stack overflow: https://stackoverflow.com/questions/25337336/how-to-make-text-be-typed-out-in-console-application 
+        //fe02x- author
+        public void TypingEffect(string message, int delay = 20)
+        {
+            foreach (var character in message)
+            {
+
+                Console.Write(character);
+                Thread.Sleep(delay);
+            }
+            Console.WriteLine();
+        }
+
     }
 }
