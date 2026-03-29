@@ -12,7 +12,7 @@
              */
 
             //Voice greeting
-            AudioPlayer audio = new AudioPlayer();
+           AudioPlayer audio = new AudioPlayer();
             audio.PlayVoiceGreeting ();
 
             //Ascii logo
