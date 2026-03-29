@@ -168,15 +168,15 @@ namespace BreachByte_SecurityBot
                         "\nand promoting employee vigilance through training to recognize and verify suspicious requests and avoid untrusted links or attachments.");
 
                     Console.WriteLine();
-                   Console.WriteLine("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
-                        "\n\tDont worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅");
+                    Console.WriteLine("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
+                         "\n\tDont worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅");
                     Console.WriteLine();
                 }
 
                 //Safe Browsing
                 else if (input.Contains("safe browsing") || input.Contains("browsing"))
                 {
-                    Console.WriteLine() ;
+                    Console.WriteLine();
                     Console.WriteLine("There are hundreds of thousands of rogue or compromised websites on the internet. Therefore, it is essential that you take caution when using the internet.");
                     Console.WriteLine("Use the followigng principles to help avoid infectinf or compromising your device: ");
                     Console.WriteLine(" - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
@@ -221,11 +221,11 @@ namespace BreachByte_SecurityBot
 
                 //Banking scams
                 else if (input.Contains("banking scams") || input.Contains("banking scam"))
-               // https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud
-                    {
+                // https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud
+                {
                     Console.WriteLine();
                     Console.WriteLine($"Banking scams are unfortunately huge in South Africa {userName}, but at least this information will give you an upper hand 😁 ");
-                   
+
                     Console.WriteLine("\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
                         "Common types of banking cybercrimes include: " +
                         "\n1.Phishing: Fraudsters impersonate banks via emails, luring victims to fake websites to steal personal banking information " +
@@ -238,25 +238,25 @@ namespace BreachByte_SecurityBot
 
                     Console.WriteLine("To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
                         "and to report any suspected fraud to their bank immediately. ");
-                    Console.WriteLine() ;
-                } 
+                    Console.WriteLine();
+                }
 
                 //Malware & ransomware
-                else if(input.Contains("malware and ransomware") || input.Contains("ransomware and malware"))
+                else if (input.Contains("malware and ransomware") || input.Contains("ransomware and malware"))
                 //https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/
                 {
                     Console.WriteLine();
                     Console.WriteLine("Any program that is used maliciously to damage systems is referred to as malware (malicious software). " +
                         "\nIt intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary.");
                     Console.WriteLine();
-                    
+
                     Console.WriteLine("The most prevalent and frequently most dangerous type of malware is ransomware. " +
                         "\nRansomware typically entails hackers encrypting an organization's files to prevent access. After that, they demand payment to grant" +
                         "\naccess to the data. In recent times, several forms of cyber extortion, such as information theft, have been referred to as ransomware. ");
                     Console.WriteLine();
 
                     Console.WriteLine("\tAs much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅");
-                    
+
                     Console.WriteLine("\n\tHeres how you can protect your device: ");
                     Console.WriteLine("1. Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." +
                              "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
@@ -267,10 +267,11 @@ namespace BreachByte_SecurityBot
                 }
 
                 //Identity theft
-                else if(input.Contains("identity theft"))
+                else if (input.Contains("identity theft"))
                 {
                     Console.WriteLine();
                     Console.WriteLine($"\tYour personal information is incredibly valueable, {userName}. Let's make sure it stays personal!");
+
                     Console.WriteLine("\tHere is what you need to know: ");
                     Console.WriteLine("/nYour identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase; " +
                         "\nthey can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic," +
@@ -278,19 +279,45 @@ namespace BreachByte_SecurityBot
                         "\nstealing consumers' personal information, consumers have to act smart and stay ahead of them. There are steps consumers can take to better protect their personal" +
                         "\ninformation, as well as products that keep watch over their identity, even when they can't.\r\n\r\nEnsure all your private correspondence stays private - lock your" +
                         "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them; and protect your online identity.");
+
                     Console.WriteLine("\nThe most important way to reduce the risk of online indentity theft is to have a stromg password. Refer to the 'password safety' option to make sure your password is strong!");
+                    Console.WriteLine();
                 }
-                else if(input == "exit" || input == "quit" || input.Contains("bye"))
-                {
-                    Console.WriteLine($"\nStay safe out there in the digital world, {userName}! I hope our chat was helpful, goodbye!");
+
+                //If user is done
+                else if (input == "exit" || input == "quit" || input.Contains("bye"))
+                {  
+                    Console.WriteLine() ;
+                    Console.WriteLine($"\tStay safe out there in the digital world, {userName}! I hope our chat was helpful, goodbye!");
                     isActive = false;
                 }
-                //input validation 
-           
 
+                //Input validation 
 
-            }
+                //If user leaves response empty/blank or just presses the space bar
+                else if (string.IsNullOrWhiteSpace(input))
+                //https://stackoverflow.com/questions/30654625/c-sharp-how-to-handle-empty-user-input ohlando
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("\tOops! You didn't type anything.");
+                    Console.WriteLine("\tIf you arent sure what to ask, type 'What can i ask' to know more or type 'exit' if you're done 😊");
+                    Console.WriteLine();
+                }
+
+                //If user responds with an unsupported query
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("I didnt quite understand that? Could you please rephrase, or double check your spelling?");
+                    Console.WriteLine();
+                }
+           }
+        
+        
+        
         }
+
+
 
     }
 }
