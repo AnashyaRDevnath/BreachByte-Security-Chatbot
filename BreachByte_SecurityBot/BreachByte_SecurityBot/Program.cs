@@ -20,7 +20,7 @@
             logo.DisplayLogo();
             string name =logo.WelcomeUser(); //reference 
 
-            //testing convo
+            //response system
             BotBrain convo = new BotBrain();
             convo.Conversation(name);
 
