@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BreachByte_SecurityBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89b32ffd3dd37dd8208849d402da9a5a75cc649c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c64301c76005cfe02580602f292262852953532")]
 [assembly: System.Reflection.AssemblyProductAttribute("BreachByte_SecurityBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BreachByte_SecurityBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

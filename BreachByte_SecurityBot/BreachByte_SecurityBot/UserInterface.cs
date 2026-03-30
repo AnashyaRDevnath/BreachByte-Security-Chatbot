@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using System.Threading;
+using System.Media;
 
 namespace BreachByte_SecurityBot
 {
-    internal class UserInterface
+    public class UserInterface
     {
       
 
@@ -43,6 +45,13 @@ namespace BreachByte_SecurityBot
             Console.WriteLine(logo);
             Console.ResetColor();
 
+        }
+
+        //Voice greeting
+        public void VoiceGreeting()
+        {
+            SoundPlayer audio = new SoundPlayer("VoiceGreeting.wav");
+            audio.PlaySync();
         }
 
         //Typing effect
