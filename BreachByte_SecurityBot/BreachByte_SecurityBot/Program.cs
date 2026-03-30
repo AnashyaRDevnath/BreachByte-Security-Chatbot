@@ -10,8 +10,8 @@
 
 
             //Voice greeting
-            AudioPlayer audio = new AudioPlayer();
-             audio.PlayVoiceGreeting ();
+           AudioPlayer audio = new AudioPlayer();
+            audio.PlayVoiceGreeting ();
 
             //Ascii logo
             UserInterface logo = new UserInterface();

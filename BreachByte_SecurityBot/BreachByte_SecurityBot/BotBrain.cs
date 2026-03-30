@@ -14,17 +14,19 @@ namespace BreachByte_SecurityBot
     {
         public void Conversation(string userName)
         {
-            //Creating userInterface object for the typing effect method
+            
             UserInterface ui = new UserInterface();
             bool isActive = true;
             //site yt video for emoji: https://www.youtube.com/watch?v=hKeKLxvU9Ew 
-            ui.TypingEffect($"How can i help you today {userName}? If you wish to end our conversation, type 'exit'. 😊");
+            ui.TypingEffect($"How can i help you today {userName}? If you would like to find out more type 'purpose', or to end our conversation type 'exit' or 'bye'. 😊");
 
             while (isActive)
             {
-                //get users response
+                //get users response 
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.Write($"{userName}:");
                 string input = Console.ReadLine().ToLower();
+                Console.ResetColor();
 
                 //bots response system
 
@@ -32,8 +34,7 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     ui.TypingEffect("I'm doing great today, thanks for asking 😄. How are you?");
-                    Console.WriteLine();
-
+                    ui.PrintDivider();  
                 }
 
                 //Purpose
@@ -41,8 +42,8 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     ui.TypingEffect("\tMy purpose is to educate you on cybersecurity topics, such" +
-                        " \n\tas if you encounter cyber threats and provide guidance on avoiding common traps.");
-                    Console.WriteLine();
+                        " \n\tas if you encounter cyber threats and provide guidance on avoiding common traps. Type 'What can i ask' to know more.");
+                    ui.PrintDivider();
 
                 }
 
@@ -53,7 +54,7 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.TypingEffect("\tYou can ask me for tips and guidance on password safety, phishing and safe browsing." +
                         "\n\tIf you would like to know about other cybercrime topics as well, type 'topics' and we can get started :)");
-                    Console.WriteLine();
+                    ui.PrintDivider();
 
                 }
 
@@ -61,6 +62,7 @@ namespace BreachByte_SecurityBot
                 else if (input.Contains("password"))
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tPassword Safety");
                     ui.TypingEffect("\tPasswords, huh? Having a strong one is crucial, even though we all have far too many to remember these days." +
                         "\n\tHere are some golden safety tips: ");
                     Console.WriteLine();
@@ -74,7 +76,7 @@ namespace BreachByte_SecurityBot
                                       "\n8. See if your passwords have been compromised.");
                     Console.WriteLine();
                     ui.TypingEffect($"\tI hope that helped {userName}, let me know if you would like me to go into more detail 😊. Type 'details' if so.");
-                    Console.WriteLine();
+                    ui.PrintDivider();
 
                     //cite https://www.fmins.com/blog/password-safety-tips/
 
@@ -107,13 +109,15 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect("   If they were, change those passwords immediately!");
 
                     ui.TypingEffect($"\n\tI hope this clarified things better for you {userName} 😊");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Phishing
                 else if (input.Contains("phishing"))
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tPhishing");
+                    ui.PrintHeader("\tPhishing");
                     ui.TypingEffect($"\tOh dont get me started on phishing🙄 {userName}. I see those fake package delivery emails all the time.");//intro
                     ui.TypingEffect("\tIt's crazy how real they can look these days!");
                     ui.TypingEffect("\tHere is everything you need to know to stay ahead of those sneaky attacks: ");
@@ -125,7 +129,7 @@ namespace BreachByte_SecurityBot
 
                     Console.WriteLine();
                     ui.TypingEffect("\tIf you would like to know about the types phishing attacks and how to spot one, type 'attacks'.");
-                    Console.WriteLine();
+                    ui.PrintDivider(); 
                 }
 
                 else if (input.Contains("attacks") || input.Contains("attack"))
@@ -155,7 +159,7 @@ namespace BreachByte_SecurityBot
 
                     Console.WriteLine();
                     ui.TypingEffect($"\tI hope that taught you something {userName}.If you want to know to protect yourself from phishing type 'protect'.");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 else if (input.Contains("protect") || input.Contains("protects"))
@@ -172,13 +176,14 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.TypingEffect("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
                          "\n\tDont worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Safe Browsing
                 else if (input.Contains("safe browsing") || input.Contains("browsing"))
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tSafe Browsing");
                     ui.TypingEffect("There are hundreds of thousands of rogue or compromised websites on the internet. Therefore, it is essential that you take caution when using the internet.");
                     ui.TypingEffect("Use the followigng principles to help avoid infectinf or compromising your device: ");
                     ui.TypingEffect(" - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
@@ -195,7 +200,7 @@ namespace BreachByte_SecurityBot
                                      "\n- Don't click on any pop-ups. Dont even click on the 'x', use alt + F4 to close bad web pages. ");
                     Console.WriteLine();
                     ui.TypingEffect("Thats alot to remember right? If you would like a summarised version type 'summary' and I'll give you just that.");
-                    Console.WriteLine();
+                    ui.PrintDivider();
 
                     //CITE https://www.mcphs.edu/information-services/security/best-practices/safe-browsing-principles
 
@@ -208,7 +213,7 @@ namespace BreachByte_SecurityBot
                         " frequently clear browser cache, and avoid using download managers as they can introduce malware. Steer clear of downloads from unknown sites, safeguard passwords," +
                         " and be wary of portable storage devices that may carry viruses. Familiarize yourself with privacy policies to understand data sharing practices, and refrain from " +
                         "interacting with pop-ups, using 'alt + F4' instead of clicking close buttons.");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Other cybercrime options
@@ -218,7 +223,7 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect($"\tOh, I love a curious mind {userName}! Let's dig deeper and level up your security knowledge." +
                         $"\n\tHere is the advanced stuff you can ask me about: banking scams, malware and ransomwar and identity theft.");
                     ui.TypingEffect("\tType any of those names to get started 😄");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Banking scams
@@ -226,6 +231,7 @@ namespace BreachByte_SecurityBot
                 // https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tBanking Scams");
                     ui.TypingEffect($"Banking scams are unfortunately huge in South Africa {userName}, but at least this information will give you an upper hand 😁 ");
 
                     ui.TypingEffect("\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
@@ -240,7 +246,7 @@ namespace BreachByte_SecurityBot
 
                     ui.TypingEffect("To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
                         "and to report any suspected fraud to their bank immediately. ");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Malware & ransomware
@@ -248,6 +254,7 @@ namespace BreachByte_SecurityBot
                 //https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tMalware & Ransomware");
                     ui.TypingEffect("Any program that is used maliciously to damage systems is referred to as malware (malicious software). " +
                         "\nIt intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary.");
                     Console.WriteLine();
@@ -265,7 +272,7 @@ namespace BreachByte_SecurityBot
                              "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
                              "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
                              "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. ");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //Identity theft 
@@ -273,6 +280,7 @@ namespace BreachByte_SecurityBot
                 else if (input.Contains("identity theft"))
                 {
                     Console.WriteLine();
+                    ui.PrintHeader("\tIdentity Theft");
                     ui.TypingEffect($"\tYour personal information is incredibly valueable, {userName}. Let's make sure it stays personal!");
 
                     ui.TypingEffect("\tHere is what you need to know: ");
@@ -284,7 +292,7 @@ namespace BreachByte_SecurityBot
                         "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them; and protect your online identity.");
 
                     ui.TypingEffect("\nThe most important way to reduce the risk of online indentity theft is to have a stromg password. Refer to the 'password safety' option to make sure your password is strong!");
-                    Console.WriteLine();
+                    ui.PrintDivider();
                 }
 
                 //If user is done

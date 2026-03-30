@@ -39,7 +39,7 @@ namespace BreachByte_SecurityBot
        '---------------------------------------------------------------'
     """;
 
-            Console.ForegroundColor = ConsoleColor.DarkMagenta; 
+            Console.ForegroundColor = ConsoleColor.DarkCyan; 
             Console.WriteLine(logo);
             Console.ResetColor();
 
@@ -68,7 +68,7 @@ namespace BreachByte_SecurityBot
             Console.WriteLine();
 
             //border
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine(new string('=', 65)); //top border
 
            
@@ -99,7 +99,7 @@ namespace BreachByte_SecurityBot
 
 ";
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(welcome);
             Console.ResetColor( );
 
@@ -107,7 +107,27 @@ namespace BreachByte_SecurityBot
 
         }
 
-       
+        //Enhanced console ui with visual elements 
+
+        //Divider
+        public void PrintDivider()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("\n--------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.ResetColor();
+        }
+
+        //section headers
+        public void PrintHeader(string title)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("==================================================");
+            Console.WriteLine($"   {title.ToUpper()}   ");
+            Console.WriteLine("==================================================\n");
+            Console.ResetColor();
+        }
+
+
 
     }
 }
