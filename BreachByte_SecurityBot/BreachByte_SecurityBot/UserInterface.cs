@@ -50,8 +50,16 @@ namespace BreachByte_SecurityBot
         //Voice greeting
         public void VoiceGreeting()
         {
-            SoundPlayer audio = new SoundPlayer("VoiceGreeting.wav");
-            audio.PlaySync();
+            try
+            {
+                SoundPlayer audio = new SoundPlayer("VoiceGreeting.wav");
+                audio.PlaySync();
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         //Typing effect
