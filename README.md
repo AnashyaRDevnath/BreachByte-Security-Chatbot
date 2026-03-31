@@ -5,6 +5,8 @@ This is a console based app that displays a voice greeting alongside ascii art t
 It's purpose is to educate users on cybercrimes such as phishing, password safety, safe browsing and more.
 
 Demo Video Link: 
+Part 1: https://youtu.be/J-gknWy8jFw
+Part 2: https://youtu.be/7bY_fkM7akc 
 
 
 System Setup:
@@ -43,5 +45,64 @@ The current stage is just Part 1 out of Part 3.
 Future Advancements:
 -Update the command-line application to have a Graphic User interface using Windows Presentation Foundation (WPF) or Windows Forms. The bot should be able to recognise specific topics related to cybersecurity. (This is part 2)
 -Extend the existing GUI from the previous advancement (part 2) and add advanced features, including interactive elemtns like a simple game or task list for cybersecurity tips. Create a professional and engaging 8-10 minute video presentation. (Part 3)
+
+Reference List: 
+Reference List
+*CodeWith { Parveen Yadav }, 2023. Add emojis in VS code| Add emojis in Visual Studio | csharp | Dotnet | Dotnetcore | Javascript [video online]. Available at:** <https://www.youtube.com/watch?v=hKeKLxvU9Ew > [Accessed 25 March 2026].
+    
+ * Frankenmuth Insurance.,2021. 8 password safety tips. Frankenmuth Insurance blog, [blog] 21 October. 
+ * Available at:<https://www.fmins.com/blog/password-safety-tips/> [Accessed 25 March 2026].
+
+*fe02x, 2014. How to make text be "typed out" in console application?.[Online] Available at: <https://stackoverflow.com/questions/25337336/how-to-make-text-be-typed-out-in-console-application > [Accessed 25 March 2026].
+
+ *Fortinet, n.d. What Is Phishing? [Online] Available at:<https://www.fortinet.com/resources/cyberglossary/phishing> [Accessed 25 March 2026].
+  
+  *Gillespie. P, n.d. Text to ASCII Art Generator (TAAG). [Online]. Available at: <https://patorjk.com/software/taag/#p=display&f=Cybermedium&t=BreachByte%0ASecurity+Bot&x=none&v=4&h=4&w=80&we=false> 
+   & Available at:<https://patorjk.com/software/taag/#p=display&f=Soft&t=I%27m+here+to+assist+you+%3A%29&x=none&v=4&h=4&w=80&we=false> [Accessed 23 March 2026].
+
+ * Ico, n.d. Malware and ransomware. [Online]. 
+ * Available at: <https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/> [Accessed 29 March 2026].
+ * 
+ * 
+ * Massachusets College of Pharmacy and Health Sciences, n.d. Safe Browsing Principles. [Online].
+ * Available at: <https://www.mcphs.edu/information-services/security/best-practices/safe-browsing-principles> [Accesssed 29 March 2026].
+
+ * Miken32, 2024. How to show emoji in c# console output? [Online]. Available at:<https://stackoverflow.com/questions/67508469/how-to-show-emoji-in-c-sharp-console-output> [Accessed 30 March 2026].
+*/
+ * 
+ * Ohlando, 2015. C# - How to handle empty user input? [Online]. Available at: <https://stackoverflow.com/questions/30654625/c-sharp-how-to-handle-empty-user-input> [Accessed 29 March 2026].
+ * 
+ * Standard Bank, n.d. Common scams in South African banking. [Online]. 
+ * Available at <https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud> [Accessed 29 March 2026].
+ *
+ * 
+ * TransUnion, n.d. Protect you Identity today with TrueIdentity. [Online]. Available at:<https://www.transunion.co.za/education/identity-theft> [Accessed 29 March 2926].
+ * 
+
+Annexure A: Disclosure of AI Usage in my Assessment.
+*Section within the assessment AI was used:
+Part 1
+*Name of AI tool
+Gemini
+*Purpose/intention behind use	
+To breakdown assignment and generate pseudo code, how to save .wav file in repo, general questions and questions about structure and formatting, ci.yml file help.
+*Date used
+23-29 March 2026
+*Link
+https://gemini.google.com/app/43d0d836d6eb23f2?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all 
+
+*Section used
+Part 1, Brainbot.cs
+*Name of AI tool
+Quillbot
+*Purpose/intention behind use
+To paraphrase and summarise info
+Date used:
+23-29 March 2026
+Link:
+https://quillbot.com/paraphrasing-tool  
+
+
+
 
   
