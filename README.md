@@ -8,6 +8,16 @@ Demo Video Link:
 Part 1: https://youtu.be/J-gknWy8jFw
 Part 2: https://youtu.be/7bY_fkM7akc 
 
+Working action screenshots:
+<img width="1435" height="700" alt="Screenshot 2026-03-31 234321" src="https://github.com/user-attachments/assets/d4d5e595-12a1-4a7f-8d55-fd337c0828f9" />
+<img width="1435" height="700" alt="Screenshot 2026-03-31 234321" src="https://github.com/user-attachments/assets/d4d5e595-12a1-4a7f-8d55-fd337c0828f9" />
+<img width="1892" height="963" alt="Screenshot 2026-03-31 234243" src="https://github.com/user-attachments/assets/88c35463-e646-4e48-a894-3c2f0881ff01" />
+<img width="1892" height="963" alt="Screenshot 2026-03-31 234243" src="https://github.com/user-attachments/assets/88c35463-e646-4e48-a894-3c2f0881ff01" />
+<img width="1906" height="967" alt="Screenshot 2026-03-31 234228" src="https://github.com/user-attachments/assets/68879b3e-d990-4bff-ab72-ac084062b5a8" />
+<img width="1906" height="967" alt="Screenshot 2026-03-31 234228" src="https://github.com/user-attachments/assets/68879b3e-d990-4bff-ab72-ac084062b5a8" />
+<img width="1918" height="958" alt="Screenshot 2026-03-31 234329" src="https://github.com/user-attachments/assets/799f8ae6-8341-42d5-8ea9-3c4fbec2068f" />
+<img width="1918" height="958" alt="Screenshot 2026-03-31 234329" src="https://github.com/user-attachments/assets/799f8ae6-8341-42d5-8ea9-3c4fbec2068f" />
+
 
 System Setup:
 To run this application on your local machine, follow these simple steps:
