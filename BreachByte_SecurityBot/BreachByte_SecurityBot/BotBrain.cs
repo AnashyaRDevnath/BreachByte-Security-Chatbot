@@ -51,7 +51,7 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     Console.WriteLine();
-                    ui.TypingEffect("\tYou can ask me for tips and guidance on password safety, phishing and safe browsing." +
+                    ui.TypingEffect("\tYou can ask me for tips and guidance on either password safety, phishing and safe browsing." +
                         "\n\tIf you would like to know about other cybercrime topics as well, type 'topics' and we can get started :)");
                     ui.PrintDivider();
 
@@ -66,7 +66,7 @@ namespace BreachByte_SecurityBot
                         "\n\tIn accordance to Frankenmuth Insurance (2021), here are some golden safety tips: ");
                     Console.WriteLine();
                     ui.TypingEffect("1. Make passwords a minimum of 10 characters. " +
-                                      "\n2. Dont use real words." +
+                                      "\n2. Don't use real words." +
                                       "\n3. Don't use obvious information." +
                                       "\n4. Use a different password for every account." +
                                       "\n5. Consider a password manager." +
@@ -74,7 +74,8 @@ namespace BreachByte_SecurityBot
                                       "\n7. Don't enter passwords on public Wi-Fi." +
                                       "\n8. See if your passwords have been compromised.");
                     Console.WriteLine();
-                    ui.TypingEffect($"\tI hope that helped {userName}, let me know if you would like me to go into more detail 😊. Type 'details' if so.");
+                    ui.TypingEffect($"\tI hope that helped {userName}, let me know if you would like me to go into more detail 😊." +
+                        $"\n\t Type 'details' if so, else type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
 
                     
@@ -107,7 +108,7 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect("8. Use sites like 'Have I Been Pwned' to check if your accounts were leaked in a data breach.");
                     ui.TypingEffect("   If they were, change those passwords immediately!");
 
-                    ui.TypingEffect($"\n\tI hope this clarified things better for you {userName} 😊");
+                    ui.TypingEffect($"\n\tI hope this clarified things better for you {userName} 😊. Type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -116,8 +117,7 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     ui.PrintHeader("\tPhishing");
-                    ui.PrintHeader("\tPhishing");
-                    ui.TypingEffect($"\tOh dont get me started on phishing🙄 {userName}. I see those fake package delivery emails all the time.");//intro
+                    ui.TypingEffect($"\tOh don't get me started on phishing🙄 {userName}. I see those fake package delivery emails all the time.");//intro
                     ui.TypingEffect("\tIt's crazy how real they can look these days!");
                     ui.TypingEffect("\tHere is everything you need to know to stay ahead of those sneaky attacks: ");
 
@@ -127,7 +127,7 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect("entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment."); //(Fortinet, n.d)
 
                     Console.WriteLine();
-                    ui.TypingEffect("\tIf you would like to know about the types phishing attacks and how to spot one, type 'attacks'.");
+                    ui.TypingEffect("\tIf you would like to know about the types phishing attacks and how to spot one, type 'attacks' else type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider(); 
                 }
 
@@ -157,7 +157,7 @@ namespace BreachByte_SecurityBot
                          "\n-Hidden URLs: Hovering your mouse over a link reveals a strange or unfamiliar web address that does not match the trusted company."); //(Fortinet, n.d)
 
                     Console.WriteLine();
-                    ui.TypingEffect($"\tI hope that taught you something {userName}.If you want to know to protect yourself from phishing type 'protect'.");
+                    ui.TypingEffect($"\tI hope that taught you something {userName}.If you want to know to protect yourself from phishing type 'protect' else type 'What can i ask' to see other available options or 'bye' to end out conversation.");
                     ui.PrintDivider();
                 }
 
@@ -174,7 +174,8 @@ namespace BreachByte_SecurityBot
 
                     Console.WriteLine();
                     ui.TypingEffect("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
-                         "\n\tDont worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅");
+                         "\n\tDon't worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅" +
+                         "\n\tType 'What can i ask' to see other available options or 'bye' to end our conversation");
                     ui.PrintDivider();
                 }
 
@@ -184,11 +185,11 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.PrintHeader("\tSafe Browsing");
                     ui.TypingEffect("There are hundreds of thousands of rogue or compromised websites on the internet. Therefore, it is essential that you take caution when using the internet.");
-                    ui.TypingEffect("Use the followigng principles to help avoid infecting or compromising your device: ");
+                    ui.TypingEffect("Use the following principles to help avoid infecting or compromising your device: ");
                     ui.TypingEffect(" - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
-                                     "\n- Watch out for certificate error messages. Make sure the site url begins with 'https' rarther than http when entering sensitive information" +
-                                     "\n- When reviewing pictues in search engines, be wary of the site of where the picture is from. It could be malicious" +
-                                     "\n- Try to stay away from adult websites as much as you can. These websites are hotspots for security risks and harmful softwar like pop up advertising." +
+                                     "\n- Watch out for certificate error messages. Make sure the site url begins with 'https' rather than http when entering sensitive information" +
+                                     "\n- When reviewing pictures in search engines, be wary of the site of where the picture is from. It could be malicious" +
+                                     "\n- Try to stay away from adult websites as much as you can. These websites are hotspots for security risks and harmful software like pop up advertising." +
                                      "\n- When you're asked to provide personal information, such as card details, take extreme caution." +
                                      "\n- It's advisable to clear your browser's cache often to free up hard drive space and reduce exposure" +
                                      "\n- Take extreme caution when using download managers. As convenient as they are, they can also download malware in the background." +
@@ -196,9 +197,9 @@ namespace BreachByte_SecurityBot
                                      "\n- Don't disclose your password and sensitive information to anyone." +
                                      "\n- Be wary when using portable storage devices. Viruses and malware may copy themselves onto the drive and infect your devices when plugged in." +
                                      "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
-                                     "\n- Don't click on any pop-ups. Dont even click on the 'x', use alt + F4 to close bad web pages. "); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
+                                     "\n- Don't click on any pop-ups. Don't even click on the 'x', use alt + F4 to close bad web pages. "); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
                     Console.WriteLine();
-                    ui.TypingEffect("Thats alot to remember right? If you would like a summarised version type 'summary' and I'll give you just that.");
+                    ui.TypingEffect("That's alot to remember right? If you would like a summarised version type 'summary' and I'll give you just that or type 'What can i ask' to see other available options or 'bye' to end out conversation.");
                     ui.PrintDivider();
 
 
@@ -211,6 +212,7 @@ namespace BreachByte_SecurityBot
                         " frequently clear browser cache, and avoid using download managers as they can introduce malware. Steer clear of downloads from unknown sites, safeguard passwords," +
                         " and be wary of portable storage devices that may carry viruses. Familiarize yourself with privacy policies to understand data sharing practices, and refrain from " +
                         "interacting with pop-ups, using 'alt + F4' instead of clicking close buttons."); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
+                    ui.TypingEffect("\tType 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -219,8 +221,8 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     ui.TypingEffect($"\tOh, I love a curious mind {userName}! Let's dig deeper and level up your security knowledge." +
-                        $"\n\tHere is the advanced stuff you can ask me about: banking scams, malware and ransomwar and identity theft.");
-                    ui.TypingEffect("\tType any of those names to get started 😄");
+                        $"\n\tHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.");
+                    ui.TypingEffect("\tType any of those names to get started 😄 or type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -244,6 +246,7 @@ namespace BreachByte_SecurityBot
 
                     ui.TypingEffect("To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
                         "and to report any suspected fraud to their bank immediately. "); //(StandardBank, n.d)
+                    ui.TypingEffect("Type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -264,12 +267,14 @@ namespace BreachByte_SecurityBot
 
                     ui.TypingEffect("\tAs much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅");
 
-                    ui.TypingEffect("\n\tHeres how you can protect your device: ");
+                    ui.TypingEffect("\n\tHere's how you can protect your device: ");
                     ui.TypingEffect("1. Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." +
                              "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
                              "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
                              "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
                              "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. "); //(Ico, n.d)
+                   
+                    ui.TypingEffect("\tType 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -279,17 +284,18 @@ namespace BreachByte_SecurityBot
                 {
                     Console.WriteLine();
                     ui.PrintHeader("\tIdentity Theft");
-                    ui.TypingEffect($"\tYour personal information is incredibly valueable, {userName}. Let's make sure it stays personal!");
+                    ui.TypingEffect($"\tYour personal information is incredibly valuable, {userName}. Let's make sure it stays personal!");
 
                     ui.TypingEffect("\tHere is what you need to know: ");
-                    ui.TypingEffect("/nYour identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase; " +
-                        "\nthey can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic," +
-                        "\nthat contains your name and any other person information about you puts you at risk of identity theft.\r\n\r\nBecause identity thieves are getting smarter and faster at" +
+                    ui.TypingEffect("\nYour identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase. " +
+                        "\nThey can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic," +
+                        "\nthat contains your name and any other person information about you puts you at risk of identity theft.Because identity thieves are getting smarter and faster at" +
                         "\nstealing consumers' personal information, consumers have to act smart and stay ahead of them. There are steps consumers can take to better protect their personal" +
-                        "\ninformation, as well as products that keep watch over their identity, even when they can't.\r\n\r\nEnsure all your private correspondence stays private - lock your" +
-                        "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them; and protect your online identity."); //(TransUnion, n.d.)
+                        "\ninformation, as well as products that keep watch over their identity, even when they can't. Ensure all your private correspondence stays private - lock your" +
+                        "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity."); //(TransUnion, n.d.)
 
-                    ui.TypingEffect("\nThe most important way to reduce the risk of online indentity theft is to have a stromg password. Refer to the 'password safety' option to make sure your password is strong!");
+                    ui.TypingEffect("\nThe most important way to reduce the risk of online identity theft is to have a strong password. Refer to the 'password safety' option to make sure your password is strong!" +
+                        "\nAlternatively, you can type 'What can i ask' to see other available options or 'bye' to end our conversation.");
                     ui.PrintDivider();
                 }
 
@@ -333,18 +339,18 @@ namespace BreachByte_SecurityBot
 
 /* Reference List
  * 
- * CodeWith { Parveen Yadav }, 2023. Add emojis in VS code| Add emojis in Visual Studion | csharp | Dotnet | Dotnetcore | Javascript
+ * CodeWith { Parveen Yadav }, 2023. Add emojis in VS code| Add emojis in Visual Studio | csharp | Dotnet | Dotnetcore | Javascript
  * [video online]. Available at:<https://www.youtube.com/watch?v=hKeKLxvU9Ew > [Accessed 25 March 2026].
  * 
  * 
  * Fortinet, n.d. What Is Phishing? [Online] Available at:<https://www.fortinet.com/resources/cyberglossary/phishing> [Accessed 25 March 2026].
  * 
  * 
- * Frankenmuth Insurace.,2021. 8 password safety tips. Frankenmuth Insurance blog, [blog] 21 October. 
+ * Frankenmuth Insurance.,2021. 8 password safety tips. Frankenmuth Insurance blog, [blog] 21 October. 
  * Available at:<https://www.fmins.com/blog/password-safety-tips/> [Accessed 25 March 2026].
  * 
  * 
- * Ico, n.d. Malware and ransomeware. [Online]. 
+ * Ico, n.d. Malware and ransomware. [Online]. 
  * Available at: <https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/> [Accessed 29 March 2026].
  * 
  * 
