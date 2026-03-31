@@ -39,7 +39,8 @@ namespace BreachByte_SecurityBot
        |                                                                 |
        |                                                                 |
        '---------------------------------------------------------------'
-    """;
+    """;  
+            //(Gillespie. P, n.d)
 
             Console.ForegroundColor = ConsoleColor.DarkCyan; 
             Console.WriteLine(logo);
@@ -63,9 +64,7 @@ namespace BreachByte_SecurityBot
         }
 
         //Typing effect
-        //cite stack overflow: https://stackoverflow.com/questions/25337336/how-to-make-text-be-typed-out-in-console-application 
-        //fe02x- author
-        public void TypingEffect(string message, int delay = 30)
+        public void TypingEffect(string message, int delay = 30) //(fe02x, 2014)
         {
             foreach (var character in message)
             {
@@ -115,6 +114,7 @@ namespace BreachByte_SecurityBot
 
 
 ";
+            //(Gillespie. P, n.d)
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(welcome);
@@ -148,3 +148,21 @@ namespace BreachByte_SecurityBot
 
     }
 }
+
+/*  Reference List
+ *  fe02x, 2014. How to make text be "typed out" in console application?.[Online] Available at: <https://stackoverflow.com/questions/25337336/how-to-make-text-be-typed-out-in-console-application > [Accessed 25 March 2026].
+ *  Gillespie. P, n.d. Text to ASCII Art Generator (TAAG). [Online]. Available at: <https://patorjk.com/software/taag/#p=display&f=Cybermedium&t=BreachByte%0ASecurity+Bot&x=none&v=4&h=4&w=80&we=false> 
+ *  & Available at:<https://patorjk.com/software/taag/#p=display&f=Soft&t=I%27m+here+to+assist+you+%3A%29&x=none&v=4&h=4&w=80&we=false> [Accessed 23 March 2026].
+
+
+
+
+
+
+
+
+
+
+
+
+*/

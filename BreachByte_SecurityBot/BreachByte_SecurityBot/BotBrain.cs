@@ -17,8 +17,7 @@ namespace BreachByte_SecurityBot
             
             UserInterface ui = new UserInterface();
             bool isActive = true;
-            //site yt video for emoji: https://www.youtube.com/watch?v=hKeKLxvU9Ew 
-            ui.TypingEffect($"How can i help you today {userName}? If you would like to find out more type 'purpose', or to end our conversation type 'exit' or 'bye'. 😊");
+            ui.TypingEffect($"How can i help you today {userName}? If you would like to find out more type 'purpose', or to end our conversation type 'exit' or 'bye'. 😊"); //(CodeWith { Parveen Yadav }, 2023.)
 
             while (isActive)
             {
@@ -64,7 +63,7 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.PrintHeader("\tPassword Safety");
                     ui.TypingEffect("\tPasswords, huh? Having a strong one is crucial, even though we all have far too many to remember these days." +
-                        "\n\tHere are some golden safety tips: ");
+                        "\n\tIn accordance to Frankenmuth Insurance (2021), here are some golden safety tips: ");
                     Console.WriteLine();
                     ui.TypingEffect("1. Make passwords a minimum of 10 characters. " +
                                       "\n2. Dont use real words." +
@@ -78,13 +77,13 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect($"\tI hope that helped {userName}, let me know if you would like me to go into more detail 😊. Type 'details' if so.");
                     ui.PrintDivider();
 
-                    //cite https://www.fmins.com/blog/password-safety-tips/
+                    
 
                 }
                 else if (input.Contains("details") || input.Contains("detail"))
                 {
                     Console.WriteLine();
-                    ui.TypingEffect("\tI'm so glad you want to know more! To further explain those 8 tips: ");
+                    ui.TypingEffect("\tI'm so glad you want to know more! To further explain those 8 tips mentioned in Frankenmuth Insurance (2021): ");
 
                     ui.TypingEffect("1. Basically, the longer the password the stronger it is. Aim for at least 10 characters");
                     ui.TypingEffect("   and use passphrases mixed with symbols and numbers instead of single words. For example: I3eF!$h!ng_");
@@ -123,9 +122,9 @@ namespace BreachByte_SecurityBot
                     ui.TypingEffect("\tHere is everything you need to know to stay ahead of those sneaky attacks: ");
 
                     Console.WriteLine();
-                    ui.TypingEffect("To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal"); //definition
+                    ui.TypingEffect("To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal"); 
                     ui.TypingEffect("sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted");
-                    ui.TypingEffect("entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment.");
+                    ui.TypingEffect("entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment."); //(Fortinet, n.d)
 
                     Console.WriteLine();
                     ui.TypingEffect("\tIf you would like to know about the types phishing attacks and how to spot one, type 'attacks'.");
@@ -138,24 +137,24 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine("\tNow that you understand what phishing is, lets move on to the common types of phishing attacks.");
                     Console.WriteLine();
 
-                    ui.TypingEffect("Cybercriminals use several specialized tactics depending on their target:");
-                    ui.TypingEffect("-Spear Phishing: Highly targeted attacks customized with the victim's specific personal or professional details.");
-                    ui.TypingEffect("-Whaling: A variant of spear phishing targeting high-level executives (the 'whales') to access highly sensitive corporate data.");
-                    ui.TypingEffect("-Vishing & Angler Phishing: Phishing done over voice calls (Vishing) or via direct messages on social media platforms (Angler).");
-                    ui.TypingEffect("-Business Email Compromise (BEC): Impersonating senior executives to trick employees into wiring money to fraudulent accounts.");
+                    ui.TypingEffect("Cybercriminals use several specialized tactics depending on their target:"); 
+                    ui.TypingEffect("-Spear Phishing: Highly targeted attacks customized with the victim's specific personal or professional details."); 
+                    ui.TypingEffect("-Whaling: A variant of spear phishing targeting high-level executives (the 'whales') to access highly sensitive corporate data."); 
+                    ui.TypingEffect("-Vishing & Angler Phishing: Phishing done over voice calls (Vishing) or via direct messages on social media platforms (Angler)."); 
+                    ui.TypingEffect("-Business Email Compromise (BEC): Impersonating senior executives to trick employees into wiring money to fraudulent accounts."); 
                     ui.TypingEffect("-Clone Phishing & Quishing: Replicating legitimate emails exactly but swapping the safe links for malicious ones, or using " +
-                        "\nmalicious QR codes (Quishing) to redirect victims to fake sites.");
+                        "\nmalicious QR codes (Quishing) to redirect victims to fake sites."); //(Fortinet, n.d)
 
                     Console.WriteLine();
                     ui.TypingEffect($"\tThis is where i need you to focus {userName}, it's how to identify those red flags of what could be a phishing attempt.");
                     Console.WriteLine();
 
                     ui.TypingEffect("You should treat every unexpected email with caution. Look out for these common warning signs:" +
-                         "\n-Suspicious Sender Addresses: The 'From' address might have slight misspellings or use a domain that doesn't match the actual company" +
-                         "\n-False Urgency: Messages claiming your account will be suspended immediately if you don't click a link. " +
-                         "\n-Poor Grammar and Formatting: Legitimate corporate communications rarely have spelling errors or bizarre formatting." +
-                         "\n-Generic Greetings: Using 'Dear Customer' instead of your actual name." +
-                         "\n-Hidden URLs: Hovering your mouse over a link reveals a strange or unfamiliar web address that does not match the trusted company.");
+                         "\n-Suspicious Sender Addresses: The 'From' address might have slight misspellings or use a domain that doesn't match the actual company" + 
+                         "\n-False Urgency: Messages claiming your account will be suspended immediately if you don't click a link. " + 
+                         "\n-Poor Grammar and Formatting: Legitimate corporate communications rarely have spelling errors or bizarre formatting." + 
+                         "\n-Generic Greetings: Using 'Dear Customer' instead of your actual name." + 
+                         "\n-Hidden URLs: Hovering your mouse over a link reveals a strange or unfamiliar web address that does not match the trusted company."); //(Fortinet, n.d)
 
                     Console.WriteLine();
                     ui.TypingEffect($"\tI hope that taught you something {userName}.If you want to know to protect yourself from phishing type 'protect'.");
@@ -167,11 +166,11 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     Console.WriteLine("\tI saved the best part for last; how to protect against phishing.");
 
-                    ui.TypingEffect("\nYou can significantly mitigate risks by adopting a combination of strategies: " +
-                        "\n-Implementing Multi-Factor Authentication (MFA) to prevent unauthorized account access. " +
-                        "\n-Employing robust technical safeguards such as updated spam and web filters. " +
-                        "\n-Ensuring that data is encrypted and backed up to protect against ransomware from phishing attacks. " +
-                        "\nand promoting employee vigilance through training to recognize and verify suspicious requests and avoid untrusted links or attachments.");
+                    ui.TypingEffect("\nYou can significantly mitigate risks by adopting a combination of strategies: " + 
+                        "\n-Implementing Multi-Factor Authentication (MFA) to prevent unauthorized account access. " + 
+                        "\n-Employing robust technical safeguards such as updated spam and web filters. " + 
+                        "\n-Ensuring that data is encrypted and backed up to protect against ransomware from phishing attacks. " + 
+                        "\nand promoting employee vigilance through training to recognize and verify suspicious requests and avoid untrusted links or attachments."); //(Fortinet, n.d)
 
                     Console.WriteLine();
                     ui.TypingEffect("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
@@ -185,7 +184,7 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.PrintHeader("\tSafe Browsing");
                     ui.TypingEffect("There are hundreds of thousands of rogue or compromised websites on the internet. Therefore, it is essential that you take caution when using the internet.");
-                    ui.TypingEffect("Use the followigng principles to help avoid infectinf or compromising your device: ");
+                    ui.TypingEffect("Use the followigng principles to help avoid infecting or compromising your device: ");
                     ui.TypingEffect(" - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
                                      "\n- Watch out for certificate error messages. Make sure the site url begins with 'https' rarther than http when entering sensitive information" +
                                      "\n- When reviewing pictues in search engines, be wary of the site of where the picture is from. It could be malicious" +
@@ -197,12 +196,11 @@ namespace BreachByte_SecurityBot
                                      "\n- Don't disclose your password and sensitive information to anyone." +
                                      "\n- Be wary when using portable storage devices. Viruses and malware may copy themselves onto the drive and infect your devices when plugged in." +
                                      "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
-                                     "\n- Don't click on any pop-ups. Dont even click on the 'x', use alt + F4 to close bad web pages. ");
+                                     "\n- Don't click on any pop-ups. Dont even click on the 'x', use alt + F4 to close bad web pages. "); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
                     Console.WriteLine();
                     ui.TypingEffect("Thats alot to remember right? If you would like a summarised version type 'summary' and I'll give you just that.");
                     ui.PrintDivider();
 
-                    //CITE https://www.mcphs.edu/information-services/security/best-practices/safe-browsing-principles
 
                 }
                 else if (input.Contains("summary"))
@@ -212,7 +210,7 @@ namespace BreachByte_SecurityBot
                         " information. Be cautious of image source origins and adult websites, which often harbor security threats. Exercise extreme caution when sharing personal information," +
                         " frequently clear browser cache, and avoid using download managers as they can introduce malware. Steer clear of downloads from unknown sites, safeguard passwords," +
                         " and be wary of portable storage devices that may carry viruses. Familiarize yourself with privacy policies to understand data sharing practices, and refrain from " +
-                        "interacting with pop-ups, using 'alt + F4' instead of clicking close buttons.");
+                        "interacting with pop-ups, using 'alt + F4' instead of clicking close buttons."); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
                     ui.PrintDivider();
                 }
 
@@ -228,7 +226,7 @@ namespace BreachByte_SecurityBot
 
                 //Banking scams
                 else if (input.Contains("banking scams") || input.Contains("banking scam"))
-                // https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud
+               
                 {
                     Console.WriteLine();
                     ui.PrintHeader("\tBanking Scams");
@@ -245,13 +243,13 @@ namespace BreachByte_SecurityBot
                         "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. ");
 
                     ui.TypingEffect("To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
-                        "and to report any suspected fraud to their bank immediately. ");
+                        "and to report any suspected fraud to their bank immediately. "); //(StandardBank, n.d)
                     ui.PrintDivider();
                 }
 
                 //Malware & ransomware
                 else if (input.Contains("malware and ransomware") || input.Contains("ransomware and malware"))
-                //https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/
+               
                 {
                     Console.WriteLine();
                     ui.PrintHeader("\tMalware & Ransomware");
@@ -271,12 +269,12 @@ namespace BreachByte_SecurityBot
                              "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
                              "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
                              "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
-                             "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. ");
+                             "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. "); //(Ico, n.d)
                     ui.PrintDivider();
                 }
 
                 //Identity theft 
-                //https://www.transunion.co.za/education/identity-theft 
+               
                 else if (input.Contains("identity theft"))
                 {
                     Console.WriteLine();
@@ -289,7 +287,7 @@ namespace BreachByte_SecurityBot
                         "\nthat contains your name and any other person information about you puts you at risk of identity theft.\r\n\r\nBecause identity thieves are getting smarter and faster at" +
                         "\nstealing consumers' personal information, consumers have to act smart and stay ahead of them. There are steps consumers can take to better protect their personal" +
                         "\ninformation, as well as products that keep watch over their identity, even when they can't.\r\n\r\nEnsure all your private correspondence stays private - lock your" +
-                        "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them; and protect your online identity.");
+                        "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them; and protect your online identity."); //(TransUnion, n.d.)
 
                     ui.TypingEffect("\nThe most important way to reduce the risk of online indentity theft is to have a stromg password. Refer to the 'password safety' option to make sure your password is strong!");
                     ui.PrintDivider();
@@ -306,8 +304,8 @@ namespace BreachByte_SecurityBot
                 //Input validation 
 
                 //If user leaves response empty/blank or just presses the space bar
-                else if (string.IsNullOrWhiteSpace(input))
-                //https://stackoverflow.com/questions/30654625/c-sharp-how-to-handle-empty-user-input ohlando
+                else if (string.IsNullOrWhiteSpace(input)) //(Ohlando, 2015)
+                
                 {
                     Console.WriteLine();
                     ui.TypingEffect("\tOops! You didn't type anything.");
@@ -332,3 +330,32 @@ namespace BreachByte_SecurityBot
 
     }
 }
+
+/* Reference List
+ * 
+ * CodeWith { Parveen Yadav }, 2023. Add emojis in VS code| Add emojis in Visual Studion | csharp | Dotnet | Dotnetcore | Javascript
+ * [video online]. Available at:<https://www.youtube.com/watch?v=hKeKLxvU9Ew > [Accessed 25 March 2026].
+ * 
+ * 
+ * Fortinet, n.d. What Is Phishing? [Online] Available at:<https://www.fortinet.com/resources/cyberglossary/phishing> [Accessed 25 March 2026].
+ * 
+ * 
+ * Frankenmuth Insurace.,2021. 8 password safety tips. Frankenmuth Insurance blog, [blog] 21 October. 
+ * Available at:<https://www.fmins.com/blog/password-safety-tips/> [Accessed 25 March 2026].
+ * 
+ * 
+ * Ico, n.d. Malware and ransomeware. [Online]. 
+ * Available at: <https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/malware-and-ransomware/> [Accessed 29 March 2026].
+ * 
+ * 
+ * Massachusets College of Pharmacy and Health Sciences, n.d. Safe Browsing Principles. [Online].
+ * Available at: <https://www.mcphs.edu/information-services/security/best-practices/safe-browsing-principles> [Accesssed 29 March 2026].
+ * 
+ * Ohlando, 2015. C# - How to handle empty user input? [Online]. Available at: <https://stackoverflow.com/questions/30654625/c-sharp-how-to-handle-empty-user-input> [Accessed 29 March 2026].
+ * 
+ * Standard Bank, n.d. Common scams in South African banking. [Online]. 
+ * Available at <https://www.standardbank.co.za/southafrica/personal/about-us/financial-education/cybercrime-and-fraud/types-of-online-fraud> [Accessed 29 March 2026].
+ * 
+ * TransUnion, n.d. Protect you Identity today with TrueIdentity. [Online]. Available at:<https://www.transunion.co.za/education/identity-theft> [Accessed 29 March 2926].
+ * 
+ * */
