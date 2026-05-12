@@ -1,0 +1,73 @@
+﻿<Window x:Class="BreachByte_SecurityBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Chatbot Assistant" Height="650" Width="800" Background="#1E1E1E">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <TextBlock HorizontalAlignment="Center" Foreground="#FF0ADCDC" FontFamily="Consolas" FontSize="10" xml:space="preserve">
+                              ------------------------
+                            .                          .
+                           /                            \
+                          /                              \
+                         |                                |
+                         |                                |
+                         |                                |
+           --------------------------------------------------------- 
+        .                                                               .
+       |       ___  ____ ____ ____ ____ _  _ ___  _   _ ___ ____         |
+       |       |__] |__/ |___ |__| |    |__| |__]  \_/   |  |___         |
+       |       |__] |  \ |___ |  | |___ |  | |__]   |    |  |___         |
+       |                                                                 |
+       |       ____ ____ ____ _  _ ____ _ ___ _   _    ___  ____ ___     |
+       |       [__  |___ |    |  | |__/ |  |   \_/     |__] |  |  |      |
+       |       ___] |___ |___ |__| |  \ |  |    |      |__] |__|  |      |
+       |                                                                 |
+       |                                                                 |
+       '---------------------------------------------------------------'
+            </TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" Foreground="#FF0ADCDC" FontFamily="Consolas" FontSize="8.5" xml:space="preserve" Margin="0,5,0,0">
+,--.,--.              ,--.                                ,--.                                   ,--.        ,--.                                     ,-.   
+|  ||  |,--,--,--.    |  ,---.  ,---. ,--.--. ,---.     ,-'  '-. ,---.      ,--,--. ,---.  ,---. `--' ,---.,-'  '-.    ,--. ,--.,---. ,--.,--.    .--.'. \  
+|  |`-' |        |    |  .-.  || .-. :|  .--'| .-. :    '-.  .-'| .-. |    ' ,-.  |(  .-' (  .-' ,--.(  .-''-.  .-'     \  '  /| .-. ||  ||  |    '--' |  | 
+|  |    |  |  |  |    |  | |  |\   --.|  |   \   --.      |  |  ' '-' '    \ '-'  |.-'  `).-'  `)|  |.-'  `) |  |        \   ' ' '-' ''  ''  '    .--. |  | 
+`--'    `--`--`--'    `--' `--' `----'`--'    `----'      `--'   `---'      `--`--'`----' `----' `--'`----'  `--'      .-'  /   `---'  `----'     '--'.' /  
+                                                                                                                       `---'                          `-'
+            </TextBlock>
+        </StackPanel>
+
+        <ListBox x:Name="ChatHistoryBox" Grid.Row="1" Margin="0,0,0,15" Padding="10" 
+                 Background="#2D2D2D" Foreground="White" BorderBrush="#FF0ADCDC" BorderThickness="1"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Segoe UI" FontSize="14">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,4"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="UserInputBox" Grid.Column="0" Margin="0,0,10,0" Padding="10" 
+                     Background="#2D2D2D" Foreground="White" BorderBrush="Gray"
+                     VerticalContentAlignment="Center" FontSize="14" />
+
+            <Button x:Name="SendButton" Grid.Column="1" Width="80" Padding="10" 
+                    Background="DarkMagenta" Foreground="White" FontWeight="Bold" FontSize="14"
+                    Content="Send"/>
+        </Grid>
+    </Grid>
+</Window>
+
+        
