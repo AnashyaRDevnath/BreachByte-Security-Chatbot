@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BreachByte_SecurityBot
 {
@@ -17,6 +8,50 @@ namespace BreachByte_SecurityBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        //Instantiate BotBrain
+        private BotBrain myBot;
+
+        //Constructor
+        public MainWindow()
+        {
+            InitializeComponent();
+            myBot = new BotBrain();
+
+            //  "System Online" message to prove it works
+            ChatHistoryBox.Items.Add("Bot: System initialized. Welcome back.");
+
+        }
+
+        private void ProcessMessage()
+        {
+            string userInput = UserInputBox.Text;
+            if (string.IsNullOrWhiteSpace(userInput)) return;
+
+            // 1. Show user message
+            ChatHistoryBox.Items.Add($"You: {userInput}");
+
+            // 2. Ask the BotBrain for an answer
+            string botAnswer = myBot.GetBotResponse(userInput);
+
+            // 3. Show the bot's answer
+            ChatHistoryBox.Items.Add($"Bot: {botAnswer}");
+
+            // 4. Cleanup
+            UserInputBox.Clear();
+            ChatHistoryBox.ScrollIntoView(ChatHistoryBox.Items[ChatHistoryBox.Items.Count - 1]);
+        }
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessMessage();
+        }
+
+        private void UserInputBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the user pressed the 'Enter' key on their keyboard
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                ProcessMessage();
+            }
+        }
     }
 }

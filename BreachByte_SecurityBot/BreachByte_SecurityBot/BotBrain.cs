@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
 using System.Text;
+using System.Windows.Controls;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -14,7 +15,7 @@ namespace BreachByte_SecurityBot
     {
         //Declare the dictionary
         private Dictionary<string, string> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
-        
+
         //Constructor {fill dictionary here}
         public BotBrain()
         {
@@ -62,14 +63,14 @@ namespace BreachByte_SecurityBot
                              "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
                              "\n- Don't click on any pop-ups. Don't even click on the 'x', use alt + F4 to close bad web pages.\n\n " + //(Massachusets College of Pharmacy and Health Sciences, n.d.)
 
-            "That's alot to remember right? If you would like a summarised version type 'tell me more'!" );
+            "That's alot to remember right? If you would like a summarised version type 'tell me more'!");
 
             //Other cybercrime topics
             knowledgeBase.Add("topics",
                 "Oh, I love a curious mind!\n" +
             "Let's dig deeper and level up your security knowledge." +
                  "\nHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.\n\n" +
-          
+
                  "Type any of those names to get started ");
 
             //Banking scams
@@ -84,7 +85,7 @@ namespace BreachByte_SecurityBot
                         "\n4.ATM card swapping: Criminals distract victims while swapping ATM cards and observing PIN entry to access accounts " +
                         "\n5.Change of banking details: Fraudsters mislead victims into making payments to incorrect bank accounts, necessitating verification of recipient details" +
                         "\n6.Investment scams:  Scammers promote fraudulent high return investments, often disappearing once funds are sent." +
-                        "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. \n\n"+
+                        "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. \n\n" +
 
             "To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
                 "and to report any suspected fraud to their bank immediately. "); //(StandardBank, n.d)
@@ -96,11 +97,11 @@ namespace BreachByte_SecurityBot
             "\nThe most prevalent and frequently most dangerous type of malware is ransomware. " +
                 "\nRansomware typically entails hackers encrypting an organization's files to prevent access. After that, they demand payment to grant" +
                 "\naccess to the data. In recent times, several forms of cyber extortion, such as information theft, have been referred to as ransomware. \n\n " +
-          
+
 
             "As much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅 \n\n" +
 
-            "Here's how you can protect your device: "+
+            "Here's how you can protect your device: " +
             "\n1. Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." +
                      "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
                      "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
@@ -120,13 +121,31 @@ namespace BreachByte_SecurityBot
                 "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity." + //(TransUnion, n.d.)
 
             "\nThe most important way to reduce the risk of online identity theft is to have a strong password.");
-  }
+        }
 
+        public string GetBotResponse(string utext)
+        {
+            //Clean up input
+            string input = utext.ToLower().Trim();
 
-        
+            //Check if the exact word exists in dictionary
+            foreach (var key in knowledgeBase.Keys)
+            {
+                if (input.Contains(key))
+                {
+                    return knowledgeBase[key];
+
+                }
+            }
+
+            //Default response if the bot is confused
+            return "I didnt quite understand that? Could you please rephrase, or double check your spelling?";
+        }
+    }
+}
 
         //main conversation loop
-        public void Conversation(string userName)
+      /*  public void Conversation(string userName)
         {
             
             UserInterface ui = new UserInterface();
@@ -416,7 +435,7 @@ namespace BreachByte_SecurityBot
                */
 
                 //If user is done
-                else if (input == "exit" || input == "quit" || input.Contains("bye"))
+              /*  else if (input == "exit" || input == "quit" || input.Contains("bye"))
                 {  
                     Console.WriteLine() ;
                     ui.TypingEffect($"\tStay safe out there in the digital world, {userName}! I hope our chat was helpful, goodbye!");
@@ -426,7 +445,7 @@ namespace BreachByte_SecurityBot
                 //Input validation 
 
                 //If user leaves response empty/blank or just presses the space bar
-                else if (string.IsNullOrWhiteSpace(input)) //(Ohlando, 2015)
+               /* else if (string.IsNullOrWhiteSpace(input)) //(Ohlando, 2015)
                 
                 {
                     Console.WriteLine();

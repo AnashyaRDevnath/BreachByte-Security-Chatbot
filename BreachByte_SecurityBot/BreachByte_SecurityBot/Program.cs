@@ -1,33 +1,42 @@
-﻿
+﻿using System.Windows;
+
 namespace BreachByte_SecurityBot
 {
     public class Program
     {
-        static void Main(string[] args)
+        // This tag is strictly required by Windows to load visual graphics
+        [STAThread]
+        static void Main()
         {
+            // Tell the app to start up and show your new window
+            Application app = new Application();
+            app.Run(new MainWindow());
+
             //For app to display to emojis
-            Console.OutputEncoding = System.Text.Encoding.UTF8; //(miken32, 2024)
+            /* Console.OutputEncoding = System.Text.Encoding.UTF8; //(miken32, 2024)
 
-            UserInterface ui = new UserInterface();
-            
-            //Voice greeting
-            ui.VoiceGreeting();
-           
-            //Ascii Logo
-            ui.DisplayLogo();
-            string name = ui.WelcomeUser(); //reference 
+             UserInterface ui = new UserInterface();
 
-            //response system
-            BotBrain convo = new BotBrain();
-            convo.Conversation(name);
-           
+             //Voice greeting
+             ui.VoiceGreeting();
 
-           
+             //Ascii Logo
+             ui.DisplayLogo();
+             string name = ui.WelcomeUser(); //reference 
+
+             //response system
+             BotBrain convo = new BotBrain();
+             convo.Conversation(name);
+
+
+*/
 
 
         }
+                
+            }
     }
-}
+
 
 /* Reference list
  * Miken32, 2024. How to show emoji in c# console output? [Online]. Available at:<https://stackoverflow.com/questions/67508469/how-to-show-emoji-in-c-sharp-console-output> [Accessed 30 March 2026].

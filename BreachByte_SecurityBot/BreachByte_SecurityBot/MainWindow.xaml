@@ -61,11 +61,11 @@
 
             <TextBox x:Name="UserInputBox" Grid.Column="0" Margin="0,0,10,0" Padding="10" 
                      Background="#2D2D2D" Foreground="White" BorderBrush="Gray"
-                     VerticalContentAlignment="Center" FontSize="14" />
+                     VerticalContentAlignment="Center" FontSize="14" KeyDown="UserInputBox_KeyDown" />
 
             <Button x:Name="SendButton" Grid.Column="1" Width="80" Padding="10" 
                     Background="DarkMagenta" Foreground="White" FontWeight="Bold" FontSize="14"
-                    Content="Send"/>
+                    Content="Send" HorizontalAlignment="Left" Click="SendButton_Click"/>
         </Grid>
     </Grid>
 </Window>
