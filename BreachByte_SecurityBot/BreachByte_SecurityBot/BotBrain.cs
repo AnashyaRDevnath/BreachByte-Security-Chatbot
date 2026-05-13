@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Policy;
 using System.Security.Principal;
 using System.Text;
 using System.Windows.Controls;
@@ -50,95 +52,120 @@ namespace BreachByte_SecurityBot
             //Phishing
             knowledgeBase.Add("phishing", new string[]
                 {
-                    "Oh don't get me started on phishing. I see those fake package delivery emails all the time.\n" +//intro
-            "It's crazy how real they can look these days!\n" +
-            "Here is everything you need to know to stay ahead of those sneaky attacks: \n" +
-            "To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal\n" ,
-            "sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted \n" ,
-           "entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment. \n\n" + //(Fortinet, n.d)
+            "Oh don't get me started on phishing🙄 [NAME]. I see those fake package delivery emails all the time!" +
+            "To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal\n" +
+            "sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted \n" +
+            "entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment. \n\n" + //(Fortinet, n.d)
 
-           "If you'd like to hear about the types of attacks or how to spot them, just type 'tell me more'!)" });
+           "If you'd like to hear about the types of attacks or how to spot them, just type attack)" });
 
+            knowledgeBase.Add("attack", new string[]
+            {
+            " Cybercriminals employ various tactics tailored to their targets, including: Spear Phishing, which involves highly targeted attacks using personal details " +
+            "Whaling, aimed at high-level executives to access sensitive data; Vishing and Angler Phishing, which utilize voice calls and social media messages, respectively " +
+            "Business Email Compromise (BEC), where executives are impersonated to divert funds; and Clone Phishing and Quishing, where legitimate emails are replicated to" +
+            "include malicious links or QR codes leading to fraudulent sites. You have to look out for red flags! Suspicious sender addresses, false urgency, poor grammar," +
+            " and hidden URLs are classic signs of a phishing attack. Type 'protect' if you want to know how to stay safe."
+            });
+
+            knowledgeBase.Add("protect", new string[]
+            {
+            "I saved the best part for last, [NAME]! You can protect yourself by using Multi-Factor Authentication (MFA) and keeping your spam filters updated. And remember my golden rule: 'When in doubt, don't click the link' 😅",
+            "Mitigating risks is key! Ensure your data is backed up to protect against ransomware, and always verify suspicious requests. Don't worry about memorizing it all, just remember: think before you click! 😅"
+            });
+
+            
             //Safe Browsing
             knowledgeBase.Add("safe browsing", new string[]
                 {
-     "There are hundreds of thousands of rogue or compromised websites on the internet.Therefore, it is essential that you take caution when using the internet.\n" +
-                   "Use the following principles to help avoid infecting or compromising your device: " +
-            " - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
-                             "\n- Watch out for certificate error messages. Make sure the site url begins with 'https' rather than http when entering sensitive information" +
-                             "\n- When reviewing pictures in search engines, be wary of the site of where the picture is from. It could be malicious" +
-                             "\n- Try to stay away from adult websites as much as you can. These websites are hotspots for security risks and harmful software like pop up advertising." +
-                             "\n- When you're asked to provide personal information, such as card details, take extreme caution." +
-                             "\n- It's advisable to clear your browser's cache often to free up hard drive space and reduce exposure" +
-                             "\n- Take extreme caution when using download managers. As convenient as they are, they can also download malware in the background." +
-                             "\n- Avoid downloading files from unknown sites" +
-                             "\n- Don't disclose your password and sensitive information to anyone." +
-                             "\n- Be wary when using portable storage devices. Viruses and malware may copy themselves onto the drive and infect your devices when plugged in." +
-                             "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
-                             "\n- Don't click on any pop-ups. Don't even click on the 'x', use alt + F4 to close bad web pages.\n\n " + //(Massachusets College of Pharmacy and Health Sciences, n.d.)
-
-            "That's alot to remember right? If you would like a summarised version type 'tell me more'!" });
+            "There are hundreds of thousands of rogue or compromised websites on the internet.Therefore, it is essential that you take caution when using the internet.\n" +
+            "To enhance online safety, utilize trusted websites with valid security certifications, ensuring URLs begin with 'https' before entering sensitive information.",
+           
+            "Be cautious of image source origins and adult websites, which often harbor security threats." ,
+                
+            "Exercise extreme caution when sharing personal information" ,
+                       
+            "Fequently clear browser cache, and avoid using download managers as they can introduce malware, " +
+                       
+            "Steer clear of downloads from unknown sites, safeguard passwords",
+                        
+            "Be wary of portable storage devices that may carry viruses. " ,
+                       
+            "Familiarize yourself with privacy policies to understand data sharing practices, and refrain from interacting with pop-ups, using 'alt + F4' instead of clicking close buttons." }); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
+                                                                                    
 
             //Other cybercrime topics
             knowledgeBase.Add("topics", new string[]
                 {
-                "Oh, I love a curious mind!\n" +
+            "Oh, I love a curious mind!\n" +
             "Let's dig deeper and level up your security knowledge." +
-                 "\nHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.\n\n" +
+            "\nHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.\n\n" +
 
-                 "Type any of those names to get started " });
+            "Type any of those names to get started " });
 
             //Banking scams
             knowledgeBase.Add("banking scams", new string[]
                 {
-                "Banking scams are unfortunately huge in South Africa { userName}, but at least this information will give you an upper hand 😁 " +
-
-                    "\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
-                        "Common types of banking cybercrimes include: " +
-                        "\n1.Phishing: Fraudsters impersonate banks via emails, luring victims to fake websites to steal personal banking information " +
-                        "\n2:Vishing: Scammers place calls pretending to be bank representatives, soliciting sensitive login credentials under the guise of protecting accounts.  " +
-                        "\n3.Smishing: Malicious SMS messages trick victims into clicking links or downloading malware that captures sensitive data. " +
-                        "\n4.ATM card swapping: Criminals distract victims while swapping ATM cards and observing PIN entry to access accounts " +
-                        "\n5.Change of banking details: Fraudsters mislead victims into making payments to incorrect bank accounts, necessitating verification of recipient details" +
-                        "\n6.Investment scams:  Scammers promote fraudulent high return investments, often disappearing once funds are sent." +
-                        "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. \n\n" +
+            "Banking scams are unfortunately huge in South Africa { userName}, but at least this information will give you an upper hand 😁 " +
+            "\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
+            "There are several types of banking scams.", 
+                        
+            "Phishing: Fraudsters impersonate banks via emails, luring victims to fake websites to steal personal banking information " +
+                        
+            ":Vishing: Scammers place calls pretending to be bank representatives, soliciting sensitive login credentials under the guise of protecting accounts.  " ,
+                       
+            ".Smishing: Malicious SMS messages trick victims into clicking links or downloading malware that captures sensitive data. " ,
+                        
+            ".ATM card swapping: Criminals distract victims while swapping ATM cards and observing PIN entry to access accounts ",
+                       
+            ".Change of banking details: Fraudsters mislead victims into making payments to incorrect bank accounts, necessitating verification of recipient details" ,
+                     
+            ".Investment scams:  Scammers promote fraudulent high return investments, often disappearing once funds are sent." ,
+            
+            ".Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. \n\n" ,
 
             "To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
-                "and to report any suspected fraud to their bank immediately. " }); //(StandardBank, n.d)
+            "and to report any suspected fraud to their bank immediately. " }); //(StandardBank, n.d)
+
 
             //Malware and Ransomware
-            knowledgeBase.Add("malware and ransomeware", new string[]
+            knowledgeBase.Add("malware and ransomware", new string[]
                 {
-                "Any program that is used maliciously to damage systems is referred to as malware (malicious software). " +
-                        "\nIt intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary." +
-            "\nThe most prevalent and frequently most dangerous type of malware is ransomware. " +
-                "\nRansomware typically entails hackers encrypting an organization's files to prevent access. After that, they demand payment to grant" +
-                "\naccess to the data. In recent times, several forms of cyber extortion, such as information theft, have been referred to as ransomware. \n\n " +
+            "Any program that is used maliciously to damage systems is referred to as malware (malicious software). " ,
+            
+            "It intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary." ,
+           
+            "The most prevalent and frequently most dangerous type of malware is ransomware. " ,
+                
+            "Ransomware typically entails hackers encrypting an organization's files to prevent access. After that, they demand payment to grant access to the data. In recent times, several forms of cyber extortion, such as information theft, have been referred to as ransomware." ,
+                //(Ico, n.d)
 
+            "As much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅. Type 'How do i protect my device?' to find out how you can" });
 
-            "As much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅 \n\n" +
-
-            "Here's how you can protect your device: " +
-            "\n1. Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." +
-                     "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
-                     "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
-                     "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
-                     "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. " }); //(Ico, n.d)
+            knowledgeBase.Add("how do i protect my device", new string[]
+                {
+            "Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." ,
+                    
+            "Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." ,
+               
+            "Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." ,
+            
+            "Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." ,
+            
+            "Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. " }); //(Ico, n.d)
 
             //Identity Theft
             knowledgeBase.Add("identity theft", new string[]
                 {
-                "Your personal information is incredibly valuable, { userName}. Let's make sure it stays personal! \n" +
+            "Your identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase. " ,
+                
+            "Thieves can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic that contains your name and any other person information about you puts you at risk of identity theft. " ,
+            
+            "There are steps consumers can take to better protect their personal information, as well as products that keep watch over their identity, even when they can't." ,
+            
+            "Ensure all your private correspondence stays private - lock your postbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity." , //(TransUnion, n.d.)
 
-                    "\tHere is what you need to know: " +
-            "\nYour identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase. " +
-                "\nThey can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic," +
-                "\nthat contains your name and any other person information about you puts you at risk of identity theft.Because identity thieves are getting smarter and faster at" +
-                "\nstealing consumers' personal information, consumers have to act smart and stay ahead of them. There are steps consumers can take to better protect their personal" +
-                "\ninformation, as well as products that keep watch over their identity, even when they can't. Ensure all your private correspondence stays private - lock your" +
-                "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity." + //(TransUnion, n.d.)
-
-            "\nThe most important way to reduce the risk of online identity theft is to have a strong password." });
+            "The most important way to reduce the risk of online identity theft is to have a strong password." });
         }
 
         public string GetBotResponse(string utext)
@@ -212,195 +239,6 @@ namespace BreachByte_SecurityBot
                     ui.PrintDivider();
 
                 }
-
-
-                //Phishing
-               /* else if (input.Contains("phishing"))
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tPhishing");
-                    ui.TypingEffect($"\tOh don't get me started on phishing🙄 {userName}. I see those fake package delivery emails all the time.");//intro
-                    ui.TypingEffect("\tIt's crazy how real they can look these days!");
-                    ui.TypingEffect("\tHere is everything you need to know to stay ahead of those sneaky attacks: ");
-
-                    Console.WriteLine();
-                    ui.TypingEffect("To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal"); 
-                    ui.TypingEffect("sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted");
-                    ui.TypingEffect("entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment."); //(Fortinet, n.d)
-
-                    Console.WriteLine();
-                    ui.TypingEffect("\tIf you would like to know about the types phishing attacks and how to spot one, type 'attacks' else type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider(); 
-                }
-
-                else if (input.Contains("attacks") || input.Contains("attack"))
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("\tNow that you understand what phishing is, lets move on to the common types of phishing attacks.");
-                    Console.WriteLine();
-
-                    ui.TypingEffect("Cybercriminals use several specialized tactics depending on their target:"); 
-                    ui.TypingEffect("-Spear Phishing: Highly targeted attacks customized with the victim's specific personal or professional details."); 
-                    ui.TypingEffect("-Whaling: A variant of spear phishing targeting high-level executives (the 'whales') to access highly sensitive corporate data."); 
-                    ui.TypingEffect("-Vishing & Angler Phishing: Phishing done over voice calls (Vishing) or via direct messages on social media platforms (Angler)."); 
-                    ui.TypingEffect("-Business Email Compromise (BEC): Impersonating senior executives to trick employees into wiring money to fraudulent accounts."); 
-                    ui.TypingEffect("-Clone Phishing & Quishing: Replicating legitimate emails exactly but swapping the safe links for malicious ones, or using " +
-                        "\nmalicious QR codes (Quishing) to redirect victims to fake sites."); //(Fortinet, n.d)
-
-                    Console.WriteLine();
-                    ui.TypingEffect($"\tThis is where i need you to focus {userName}, it's how to identify those red flags of what could be a phishing attempt.");
-                    Console.WriteLine();
-
-                    ui.TypingEffect("You should treat every unexpected email with caution. Look out for these common warning signs:" +
-                         "\n-Suspicious Sender Addresses: The 'From' address might have slight misspellings or use a domain that doesn't match the actual company" + 
-                         "\n-False Urgency: Messages claiming your account will be suspended immediately if you don't click a link. " + 
-                         "\n-Poor Grammar and Formatting: Legitimate corporate communications rarely have spelling errors or bizarre formatting." + 
-                         "\n-Generic Greetings: Using 'Dear Customer' instead of your actual name." + 
-                         "\n-Hidden URLs: Hovering your mouse over a link reveals a strange or unfamiliar web address that does not match the trusted company."); //(Fortinet, n.d)
-
-                    Console.WriteLine();
-                    ui.TypingEffect($"\tI hope that taught you something {userName}.If you want to know to protect yourself from phishing type 'protect' else type 'What can i ask' to see other available options or 'bye' to end out conversation.");
-                    ui.PrintDivider();
-                }
-
-                else if (input.Contains("protect") || input.Contains("protects"))
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("\tI saved the best part for last; how to protect against phishing.");
-
-                    ui.TypingEffect("\nYou can significantly mitigate risks by adopting a combination of strategies: " + 
-                        "\n-Implementing Multi-Factor Authentication (MFA) to prevent unauthorized account access. " + 
-                        "\n-Employing robust technical safeguards such as updated spam and web filters. " + 
-                        "\n-Ensuring that data is encrypted and backed up to protect against ransomware from phishing attacks. " + 
-                        "\nand promoting employee vigilance through training to recognize and verify suspicious requests and avoid untrusted links or attachments."); //(Fortinet, n.d)
-
-                    Console.WriteLine();
-                    ui.TypingEffect("\tI know that was alot of information to take in, but these scammers are becoming really believable and its important you stay safe." +
-                         "\n\tDon't worry about memorizing all of that at once! Just remember my golden rule: 'When in doubt, don't click the link' 😅" +
-                         "\n\tType 'What can i ask' to see other available options or 'bye' to end our conversation");
-                    ui.PrintDivider();
-                } */
-
-                //Safe Browsing
-              /*  else if (input.Contains("safe browsing") || input.Contains("browsing"))
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tSafe Browsing");
-                    ui.TypingEffect("There are hundreds of thousands of rogue or compromised websites on the internet. Therefore, it is essential that you take caution when using the internet.");
-                    ui.TypingEffect("Use the following principles to help avoid infecting or compromising your device: ");
-                    ui.TypingEffect(" - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
-                                     "\n- Watch out for certificate error messages. Make sure the site url begins with 'https' rather than http when entering sensitive information" +
-                                     "\n- When reviewing pictures in search engines, be wary of the site of where the picture is from. It could be malicious" +
-                                     "\n- Try to stay away from adult websites as much as you can. These websites are hotspots for security risks and harmful software like pop up advertising." +
-                                     "\n- When you're asked to provide personal information, such as card details, take extreme caution." +
-                                     "\n- It's advisable to clear your browser's cache often to free up hard drive space and reduce exposure" +
-                                     "\n- Take extreme caution when using download managers. As convenient as they are, they can also download malware in the background." +
-                                     "\n- Avoid downloading files from unknown sites" +
-                                     "\n- Don't disclose your password and sensitive information to anyone." +
-                                     "\n- Be wary when using portable storage devices. Viruses and malware may copy themselves onto the drive and infect your devices when plugged in." +
-                                     "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
-                                     "\n- Don't click on any pop-ups. Don't even click on the 'x', use alt + F4 to close bad web pages. "); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
-                    Console.WriteLine();
-                    ui.TypingEffect("That's alot to remember right? If you would like a summarised version type 'summary' and I'll give you just that or type 'What can i ask' to see other available options or 'bye' to end out conversation.");
-                    ui.PrintDivider();
-
-
-                }
-                else if (input.Contains("summary"))
-                {
-                    ui.TypingEffect($"I understand {userName}, summaries are just better.");
-                    ui.TypingEffect("To enhance online safety, utilize trusted websites with valid security certifications, ensuring URLs begin with 'https' before entering sensitive" +
-                        " information. Be cautious of image source origins and adult websites, which often harbor security threats. Exercise extreme caution when sharing personal information," +
-                        " frequently clear browser cache, and avoid using download managers as they can introduce malware. Steer clear of downloads from unknown sites, safeguard passwords," +
-                        " and be wary of portable storage devices that may carry viruses. Familiarize yourself with privacy policies to understand data sharing practices, and refrain from " +
-                        "interacting with pop-ups, using 'alt + F4' instead of clicking close buttons."); //(Massachusets College of Pharmacy and Health Sciences, n.d.)
-                    ui.TypingEffect("\tType 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                } */
-
-                //Other cybercrime options
-              /*  else if (input.Contains("topics") || input.Contains("topic"))
-                {
-                    Console.WriteLine();
-                    ui.TypingEffect($"\tOh, I love a curious mind {userName}! Let's dig deeper and level up your security knowledge." +
-                        $"\n\tHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.");
-                    ui.TypingEffect("\tType any of those names to get started 😄 or type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                }
-              */
-                //Banking scams
-                /*else if (input.Contains("banking scams") || input.Contains("banking scam"))
-               
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tBanking Scams");
-                    ui.TypingEffect($"Banking scams are unfortunately huge in South Africa {userName}, but at least this information will give you an upper hand 😁 ");
-
-                    ui.TypingEffect("\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
-                        "Common types of banking cybercrimes include: " +
-                        "\n1.Phishing: Fraudsters impersonate banks via emails, luring victims to fake websites to steal personal banking information " +
-                        "\n2:Vishing: Scammers place calls pretending to be bank representatives, soliciting sensitive login credentials under the guise of protecting accounts.  " +
-                        "\n3.Smishing: Malicious SMS messages trick victims into clicking links or downloading malware that captures sensitive data. " +
-                        "\n4.ATM card swapping: Criminals distract victims while swapping ATM cards and observing PIN entry to access accounts " +
-                        "\n5.Change of banking details: Fraudsters mislead victims into making payments to incorrect bank accounts, necessitating verification of recipient details" +
-                        "\n6.Investment scams:  Scammers promote fraudulent high return investments, often disappearing once funds are sent." +
-                        "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. ");
-
-                    ui.TypingEffect("To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
-                        "and to report any suspected fraud to their bank immediately. "); //(StandardBank, n.d)
-                    ui.TypingEffect("Type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                } */
-
-                //Malware & ransomware
-               /* else if (input.Contains("malware and ransomware") || input.Contains("ransomware and malware"))
-               
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tMalware & Ransomware");
-                    ui.TypingEffect("Any program that is used maliciously to damage systems is referred to as malware (malicious software). " +
-                        "\nIt intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary.");
-                    Console.WriteLine();
-
-                    ui.TypingEffect("The most prevalent and frequently most dangerous type of malware is ransomware. " +
-                        "\nRansomware typically entails hackers encrypting an organization's files to prevent access. After that, they demand payment to grant" +
-                        "\naccess to the data. In recent times, several forms of cyber extortion, such as information theft, have been referred to as ransomware. ");
-                    Console.WriteLine();
-
-                    ui.TypingEffect("\tAs much as 'malware' and ransomware' sound like something out of a hacker movie, it's very much reality 😅");
-
-                    ui.TypingEffect("\n\tHere's how you can protect your device: ");
-                    ui.TypingEffect("1. Back Up Everything (Offline & Cloud): This is your #1 defense against ransomware. If hackers lock your computer, you can just wipe it and restore your files from your backup." +
-                             "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
-                             "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
-                             "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
-                             "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. "); //(Ico, n.d)
-                   
-                    ui.TypingEffect("\tType 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                } */
-
-                //Identity theft 
-               /*
-                else if (input.Contains("identity theft"))
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tIdentity Theft");
-                    ui.TypingEffect($"\tYour personal information is incredibly valuable, {userName}. Let's make sure it stays personal!");
-
-                    ui.TypingEffect("\tHere is what you need to know: ");
-                    ui.TypingEffect("\nYour identity can be stolen in any number of ways. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase. " +
-                        "\nThey can obtain information from your social media profiles; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic," +
-                        "\nthat contains your name and any other person information about you puts you at risk of identity theft.Because identity thieves are getting smarter and faster at" +
-                        "\nstealing consumers' personal information, consumers have to act smart and stay ahead of them. There are steps consumers can take to better protect their personal" +
-                        "\ninformation, as well as products that keep watch over their identity, even when they can't. Ensure all your private correspondence stays private - lock your" +
-                        "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity."); //(TransUnion, n.d.)
-
-                    ui.TypingEffect("\nThe most important way to reduce the risk of online identity theft is to have a strong password. Refer to the 'password safety' option to make sure your password is strong!" +
-                        "\nAlternatively, you can type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                }
-               */
 
                 //If user is done
               /*  else if (input == "exit" || input == "quit" || input.Contains("bye"))
