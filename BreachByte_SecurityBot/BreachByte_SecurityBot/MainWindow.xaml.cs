@@ -27,7 +27,7 @@ namespace BreachByte_SecurityBot
             if (string.IsNullOrWhiteSpace(userInput)) return;
 
             // 1. Show user message
-            ChatHistoryBox.Items.Add($"[Name]: {userInput}");
+            ChatHistoryBox.Items.Add($"{myBot.SavedUserName}: {userInput}");
 
             // 2. Ask the BotBrain for an answer
             string botAnswer = myBot.GetBotResponse(userInput);

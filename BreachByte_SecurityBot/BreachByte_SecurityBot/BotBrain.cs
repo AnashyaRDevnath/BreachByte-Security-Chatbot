@@ -19,7 +19,7 @@ namespace BreachByte_SecurityBot
         private Random randomiser = new Random();
 
         //Memory banks
-        public string SavedUserName { get; set; } = "friend";
+        public string SavedUserName { get; set; } = "User";
         public string FavoriteTopic { get; set; } = "";
 
         //Tracks the last topic the bot answered (conversation flow)
@@ -203,21 +203,27 @@ namespace BreachByte_SecurityBot
             //Memory logic: saving the name
             if (input.Contains("my name is"))
             {
-                string[] words = input.Split(' ');
-                SavedUserName = words[words.Length - 1]; // Grabs the last word
-                SavedUserName = char.ToUpper(SavedUserName[0]) + SavedUserName.Substring(1); // Capitalizes it
-                return $"Nice to meet you, {SavedUserName}! I'll remember that. What cybersecurity topic are you interested in?";
+                // Split the sentence exactly at the phrase "my name is "
+            string[] parts = input.Split(new string[] { "my name is " }, StringSplitOptions.None);
+
+                if (parts.Length > 1)
+                {
+                    // Grab the very first word immediately after that phrase
+                    string extractedName = parts[1].Split(' ')[0];
+
+                    // Strip away any sneaky periods, commas, or question marks attached to the name
+                    extractedName = extractedName.Trim('.', ',', '!', '?');
+
+                    // Capitalize it and save it
+                    if (!string.IsNullOrWhiteSpace(extractedName))
+                    {
+                        SavedUserName = char.ToUpper(extractedName[0]) + extractedName.Substring(1);
+                    }
+                }
+
+                return $"Nice to meet you, {SavedUserName} 😊 I'll remember that. What cybersecurity topic are you interested in?";
+
             }
-
-            //Exit command
-            if (input == "exit" || input == "quit" || input.Contains("bye"))
-            {
-               System.Windows.Application.Current.Shutdown();
-
-                string goodbyeMsg = $"Stay safe out there in the digital world, [NAME]! I hope our chat was helpful, goodbye!";
-                return goodbyeMsg.Replace("[NAME]", SavedUserName);
-            }
-
 
             //Memory logic:Saving the Favorite Topic 
             if (input.Contains("interested in") || input.Contains("favourite is") || input.Contains("favorite is"))
@@ -228,8 +234,39 @@ namespace BreachByte_SecurityBot
                 return $"Great! I'll remember that you're interested in {FavoriteTopic}. It's a crucial part of staying safe online. What would you like to know about it?";
             }
 
+            //Sentiment detection
+            string empatheticPrefix = "";
+
+            if (input.Contains("worried") || input.Contains("scared") || input.Contains("afraid") || input.Contains("anxious"))
+            {
+                empatheticPrefix = "It's completely understandable to feel that way [NAME]. The digital world can be scary, but learning the facts keeps you safe! \n\n";
+            }
+            else if (input.Contains("frustrated") || input.Contains("confused") || input.Contains("annoyed") || input.Contains("overwhelmed"))
+            {
+                empatheticPrefix = "Take a deep breath! Cybersecurity can be super overwhelming, but we will take it one step at a time together. \n\n";
+            }
+            else if (input.Contains("curious") || input.Contains("interested"))
+            {
+                empatheticPrefix = "I love the curiosity [NAME]! Asking questions and staying informed is the absolute best defense. \n\n";
+            } 
+            else if (input.Contains("thanks") || input.Contains("grateful"))
+            {
+                empatheticPrefix = "You are most welcome [NAME]. We're in this together!\n\n";
+            }
+           
+            empatheticPrefix = empatheticPrefix.Replace("[NAME]", SavedUserName);
+
+            //Exit command
+            if (input == "exit" || input == "quit" || input.Contains("bye"))
+            {
+               System.Windows.Application.Current.Shutdown();
+
+                string goodbyeMsg = $"Stay safe out there in the digital world, [NAME]! I hope our chat was helpful, goodbye!";
+                return goodbyeMsg.Replace("[NAME]", SavedUserName);
+            }
+
             //Conversation flow
-            if (input.Contains("tell me more") || input.Contains("another tip") || input.Contains("explain more"))
+            if (input.Contains("tell me more") || input.Contains("another tip") || input.Contains("explain more") || input.Contains("what else can you tell me"))
             {
                 // Check if we actually have a previous topic to talk about
                 if (!string.IsNullOrEmpty(LastDiscussedTopic))
@@ -269,8 +306,13 @@ namespace BreachByte_SecurityBot
                     }
 
                     //Now return the fully customized answer!
-                    return finalAnswer;
+                    return empatheticPrefix + finalAnswer;
                 }
+            }
+            //If user expressed a feeling but didnt give a topic:
+            if (!string.IsNullOrEmpty(empatheticPrefix))
+            {
+                return empatheticPrefix + "What specific topic is making you feel this way? Try asking me about phishing, passwords, or safe browsing else type 'topics' to know about other cybercrime topics 😊";
             }
 
             // Return default response

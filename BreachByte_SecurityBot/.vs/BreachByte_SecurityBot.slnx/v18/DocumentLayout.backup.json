@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\botbrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
@@ -64,20 +64,20 @@
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\BotBrain.cs",
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BotBrain.cs",
               "RelativeToolTip": "BreachByte_SecurityBot\\BotBrain.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAswN8AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T21:45:37.91Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-11T20:53:32.263Z",
               "EditorCaption": ""
