@@ -12,42 +12,56 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace BreachByte_SecurityBot
 {
     public class BotBrain
-    {
-        //Declare the dictionary
-        private Dictionary<string, string> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
+    { 
+            //Declare the dictionary
+        private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
+
+        //The random number generator 
+        private Random randomiser = new Random();
+
+        
 
         //Constructor {fill dictionary here}
         public BotBrain()
         {
             //initialise dictionary
-            knowledgeBase = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            knowledgeBase = new Dictionary<string, string[]>();
 
             //Password safety
-            knowledgeBase.Add("password",
-            "Passwords, huh? Having a strong one is crucial. In accordance to Frankenmuth Insurance (2021), here are some golden safety tips:\n" +
-    "1. Make passwords a minimum of 10 characters.\n" +
-    "2. Don't use real words.\n" +
-    "3. Don't use obvious information.\n" +
-    "4. Use a different password for every account.\n" +
-    "5. Consider a password manager.\n" +
-    "6. Use two-factor authentication.\n" +
-    "7. Don't enter passwords on public Wi-Fi.\n" +
-    "8. See if your passwords have been compromised.\n\n" +
-    "(If you want to know more about any of these, just type 'tell me more'!)");
+            knowledgeBase.Add("password", new string[]
+                {
+            "Basically, the longer the password the stronger it is. Aim for at least 10 characters and use passphrases mixed with symbols and numbers instead of single words. For example: I3eF!$h!ng_",
+
+            "Try to avoid words found in the dictionary or simple sequences (like 123 or ABC). Random combinations are much harder for hackers to guess!",
+
+            "Never include names, birthdays, phone numbers or addresses. You're making it too easy for attackers😅",
+
+            "If a hacker cracks one account, you don't want them getting the keys to all your other accounts.Try to switch it up a bit.",
+
+            "Use tools like your browser's built-in manager to securely generate and remember complex passwords for you.",
+
+            "2FA may be an extra step but it adds a massive extra layer of security.It requires a unique code sent to your phone when logging in.",
+
+            "As good as the free public Wi-fi is, don't type in passwords there. Hackers on the same network can easily intercept your data.",
+
+           "Use sites like 'Have I Been Pwned' to check if your accounts were leaked in a data breach. If they were, change those passwords immediately!" //Frankenmuth Insurance (2021)
+        });
 
             //Phishing
-            knowledgeBase.Add("phishing",
+            knowledgeBase.Add("phishing", new string[]
+                {
                     "Oh don't get me started on phishing. I see those fake package delivery emails all the time.\n" +//intro
             "It's crazy how real they can look these days!\n" +
             "Here is everything you need to know to stay ahead of those sneaky attacks: \n" +
-            "To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal\n" +
-            "sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted \n" +
+            "To define it, phishing is a social engineering cyberattack where criminals use emails, texts, or direct messages to steal\n" ,
+            "sensitive data (like login credentials) and financial information or distribute malware. The attacker masquerades as a trusted \n" ,
            "entity-like a bank or a CEO-and uses urgency or fear to trick the victim into clicking a malicious link or downloading an infected attachment. \n\n" + //(Fortinet, n.d)
 
-           "If you'd like to hear about the types of attacks or how to spot them, just type 'tell me more'!)");
+           "If you'd like to hear about the types of attacks or how to spot them, just type 'tell me more'!)" });
 
             //Safe Browsing
-            knowledgeBase.Add("safe browsing",
+            knowledgeBase.Add("safe browsing", new string[]
+                {
      "There are hundreds of thousands of rogue or compromised websites on the internet.Therefore, it is essential that you take caution when using the internet.\n" +
                    "Use the following principles to help avoid infecting or compromising your device: " +
             " - Stay to well-known sites. Only trustworthy websites with valid security certifications." +
@@ -63,18 +77,20 @@ namespace BreachByte_SecurityBot
                              "\n- Stay aware of privacy policies so you understand if they share any data you provide." +
                              "\n- Don't click on any pop-ups. Don't even click on the 'x', use alt + F4 to close bad web pages.\n\n " + //(Massachusets College of Pharmacy and Health Sciences, n.d.)
 
-            "That's alot to remember right? If you would like a summarised version type 'tell me more'!");
+            "That's alot to remember right? If you would like a summarised version type 'tell me more'!" });
 
             //Other cybercrime topics
-            knowledgeBase.Add("topics",
+            knowledgeBase.Add("topics", new string[]
+                {
                 "Oh, I love a curious mind!\n" +
             "Let's dig deeper and level up your security knowledge." +
                  "\nHere is the advanced stuff you can ask me about: banking scams, malware and ransomware and identity theft.\n\n" +
 
-                 "Type any of those names to get started ");
+                 "Type any of those names to get started " });
 
             //Banking scams
-            knowledgeBase.Add("banking scams",
+            knowledgeBase.Add("banking scams", new string[]
+                {
                 "Banking scams are unfortunately huge in South Africa { userName}, but at least this information will give you an upper hand 😁 " +
 
                     "\nTo keep it simple cybercrimes in banking involve illegal activites that exploit technology to target financial institutions and their customers." +
@@ -88,10 +104,11 @@ namespace BreachByte_SecurityBot
                         "\n7.Loan scams: Scammers offer low interest loans that require upfront payment, vanishing after receiving the money. \n\n" +
 
             "To safeguard against such scams, it's advisable to not enter credentials via links in emails, to never share OTPs, to verify investment companies" +
-                "and to report any suspected fraud to their bank immediately. "); //(StandardBank, n.d)
+                "and to report any suspected fraud to their bank immediately. " }); //(StandardBank, n.d)
 
             //Malware and Ransomware
-            knowledgeBase.Add("malware and ransomeware",
+            knowledgeBase.Add("malware and ransomeware", new string[]
+                {
                 "Any program that is used maliciously to damage systems is referred to as malware (malicious software). " +
                         "\nIt intentionally harms computer systems. Many thieves aim to disrupt business and profit financially, while their motivations can vary." +
             "\nThe most prevalent and frequently most dangerous type of malware is ransomware. " +
@@ -106,10 +123,11 @@ namespace BreachByte_SecurityBot
                      "\n2. Keep Software Updated: Those annoying OS and app update pop-ups are crucial. They patch the exact security holes that malware uses to sneak in." +
                      "\n3. Use Reputable Antivirus: Have a trusted antivirus or anti-malware program running active scans in the background to catch threats before they execute." +
                      "\n4. Think Before You Download: Malware loves to hide in fake email attachments (like an invoice that is actually a .exe file) or pirated software. Never download from untrusted sources." +
-                     "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. "); //(Ico, n.d)
+                     "\n5. Beware of Random USB Drives: Never plug a found or untrusted USB stick into your computer. It is a classic hacker trick to spread malware directly onto a device. " }); //(Ico, n.d)
 
             //Identity Theft
-            knowledgeBase.Add("identity theft",
+            knowledgeBase.Add("identity theft", new string[]
+                {
                 "Your personal information is incredibly valuable, { userName}. Let's make sure it stays personal! \n" +
 
                     "\tHere is what you need to know: " +
@@ -120,7 +138,7 @@ namespace BreachByte_SecurityBot
                 "\ninformation, as well as products that keep watch over their identity, even when they can't. Ensure all your private correspondence stays private - lock your" +
                 "\npostbox; don't throw old accounts away without first destroying them; don't leave personal documents lying around where others could see them and protect your online identity." + //(TransUnion, n.d.)
 
-            "\nThe most important way to reduce the risk of online identity theft is to have a strong password.");
+            "\nThe most important way to reduce the risk of online identity theft is to have a strong password." });
         }
 
         public string GetBotResponse(string utext)
@@ -133,13 +151,18 @@ namespace BreachByte_SecurityBot
             {
                 if (input.Contains(key))
                 {
-                    return knowledgeBase[key];
+                    string[] possibleAnswers = knowledgeBase[key];
+
+                    // Pick a random number based on how many answers we have
+                    int randomIndex = randomiser.Next(possibleAnswers.Length);
+
+                    // Return that random answer!
+                    return possibleAnswers[randomIndex];
 
                 }
             }
-
-            //Default response if the bot is confused
-            return "I didnt quite understand that? Could you please rephrase, or double check your spelling?";
+            // Return default response
+            return "I didnt't quite understand that. Could you please rephrase, or double check your spelling?";
         }
     }
 }
@@ -190,61 +213,6 @@ namespace BreachByte_SecurityBot
 
                 }
 
-                //Password safety
-              /*  else if (input.Contains("password"))
-                {
-                    Console.WriteLine();
-                    ui.PrintHeader("\tPassword Safety");
-                    ui.TypingEffect("\tPasswords, huh? Having a strong one is crucial, even though we all have far too many to remember these days." +
-                        "\n\tIn accordance to Frankenmuth Insurance (2021), here are some golden safety tips: ");
-                    Console.WriteLine();
-                    ui.TypingEffect("1. Make passwords a minimum of 10 characters. " +
-                                      "\n2. Don't use real words." +
-                                      "\n3. Don't use obvious information." +
-                                      "\n4. Use a different password for every account." +
-                                      "\n5. Consider a password manager." +
-                                      "\n6. Use two-factor authentication." +
-                                      "\n7. Don't enter passwords on public Wi-Fi." +
-                                      "\n8. See if your passwords have been compromised.");
-                    Console.WriteLine();
-                    ui.TypingEffect($"\tI hope that helped {userName}, let me know if you would like me to go into more detail 😊." +
-                        $"\n\t Type 'details' if so, else type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-
-                    
-
-                }
-                else if (input.Contains("details") || input.Contains("detail"))
-                {
-                    Console.WriteLine();
-                    ui.TypingEffect("\tI'm so glad you want to know more! To further explain those 8 tips mentioned in Frankenmuth Insurance (2021): ");
-
-                    ui.TypingEffect("1. Basically, the longer the password the stronger it is. Aim for at least 10 characters");
-                    ui.TypingEffect("   and use passphrases mixed with symbols and numbers instead of single words. For example: I3eF!$h!ng_");
-
-                    ui.TypingEffect("2. Try to avoid words found in the dictionary or simple sequences (like 123 or ABC).");
-                    ui.TypingEffect("   Random combinations are much harder for hackers to guess!");
-
-                    ui.TypingEffect("3. Never include names, birthdays, phone numbers or addresses. You're making it too easy for attackers😅");
-
-                    ui.TypingEffect("4. If a hacker cracks one account, you don't want them getting the keys to all your other accounts.");
-                    ui.TypingEffect("   Try to switch it up a bit.");
-
-                    ui.TypingEffect("5. Use tools like your browser's built-in manager to securely generate and remember complex passwords for you.");
-
-                    ui.TypingEffect("6. 2FA may be an extra step but it adds a massive extra layer of security.");
-                    ui.TypingEffect("   It requires a unique code sent to your phone when logging in.");
-
-                    ui.TypingEffect("7. As good as the free public Wi-fi is, don't type in passwords there.");
-                    ui.TypingEffect("   Hackers on the same network can easily intercept your data.");
-
-                    ui.TypingEffect("8. Use sites like 'Have I Been Pwned' to check if your accounts were leaked in a data breach.");
-                    ui.TypingEffect("   If they were, change those passwords immediately!");
-
-                    ui.TypingEffect($"\n\tI hope this clarified things better for you {userName} 😊. Type 'What can i ask' to see other available options or 'bye' to end our conversation.");
-                    ui.PrintDivider();
-                }
-              */
 
                 //Phishing
                /* else if (input.Contains("phishing"))
