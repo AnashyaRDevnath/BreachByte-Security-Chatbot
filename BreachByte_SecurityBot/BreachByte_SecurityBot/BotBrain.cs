@@ -15,13 +15,17 @@ namespace BreachByte_SecurityBot
 {
     public class BotBrain
     { 
-            //Declare the dictionary
-        private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
-
         //The random number generator 
         private Random randomiser = new Random();
 
-        
+        //Memory banks
+        public string SavedUserName { get; set; } = "friend";
+        public string FavoriteTopic { get; set; } = "";
+
+        //Declare the dictionary
+        private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
+
+
 
         //Constructor {fill dictionary here}
         public BotBrain()
@@ -173,23 +177,53 @@ namespace BreachByte_SecurityBot
             //Clean up input
             string input = utext.ToLower().Trim();
 
+            //Memory logic: saving the name
+            if (input.Contains("my name is"))
+            {
+                string[] words = input.Split(' ');
+                SavedUserName = words[words.Length - 1]; // Grabs the last word
+                SavedUserName = char.ToUpper(SavedUserName[0]) + SavedUserName.Substring(1); // Capitalizes it
+                return $"Nice to meet you, {SavedUserName}! I'll remember that. What cybersecurity topic are you interested in?";
+            }
+
+            //Memory logic:Saving the Favorite Topic 
+            if (input.Contains("interested in") || input.Contains("favourite is") || input.Contains("favorite is"))
+            {
+                // Simple logic to grab the topic they mentioned
+                string[] words = input.Split(' ');
+                FavoriteTopic = words[words.Length - 1];
+                return $"Great! I'll remember that you're interested in {FavoriteTopic}. It's a crucial part of staying safe online. What would you like to know about it?";
+            }
+
             //Check if the exact word exists in dictionary
             foreach (var key in knowledgeBase.Keys)
             {
                 if (input.Contains(key))
-                {
+                { 
                     string[] possibleAnswers = knowledgeBase[key];
 
                     // Pick a random number based on how many answers we have
                     int randomIndex = randomiser.Next(possibleAnswers.Length);
 
-                    // Return that random answer!
-                    return possibleAnswers[randomIndex];
+                    // Hold the answer in a temporary variable instead of returning it right away
+                    string finalAnswer = possibleAnswers[randomIndex];
 
+                    // Inject the name from memory (Replaces [NAME] with whatever is saved)
+                    finalAnswer = finalAnswer.Replace("[NAME]", SavedUserName);
+
+                    //Occasionally remind them of their favorite topic! (For Memory & Recall)
+                    if (!string.IsNullOrEmpty(FavoriteTopic) && randomiser.Next(100) < 30) // 30% chance to happen
+                    {
+                        finalAnswer += $"\n\n(Since you are interested in {FavoriteTopic}, you might want to review the security settings on your accounts!)";
+                    }
+
+                    //Now return the fully customized answer!
+                    return finalAnswer;
                 }
             }
+
             // Return default response
-            return "I didnt't quite understand that. Could you please rephrase, or double check your spelling?";
+            return "I didn't quite understand that. Could you please rephrase, or double check your spelling?";
         }
     }
 }
