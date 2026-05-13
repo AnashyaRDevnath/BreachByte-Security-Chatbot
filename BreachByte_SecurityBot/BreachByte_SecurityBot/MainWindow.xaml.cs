@@ -17,8 +17,7 @@ namespace BreachByte_SecurityBot
             InitializeComponent();
             myBot = new BotBrain();
 
-            //  "System Online" message to prove it works
-            ChatHistoryBox.Items.Add("Bot: System initialized. Welcome back.");
+            ChatHistoryBox.Items.Add("Welcome! How are you? What's your name? ");
 
         }
 
@@ -28,13 +27,13 @@ namespace BreachByte_SecurityBot
             if (string.IsNullOrWhiteSpace(userInput)) return;
 
             // 1. Show user message
-            ChatHistoryBox.Items.Add($"You: {userInput}");
+            ChatHistoryBox.Items.Add($"[Name]: {userInput}");
 
             // 2. Ask the BotBrain for an answer
             string botAnswer = myBot.GetBotResponse(userInput);
 
             // 3. Show the bot's answer
-            ChatHistoryBox.Items.Add($"Bot: {botAnswer}");
+            ChatHistoryBox.Items.Add($"BreachByte: {botAnswer}");
 
             // 4. Cleanup
             UserInputBox.Clear();

@@ -22,16 +22,33 @@ namespace BreachByte_SecurityBot
         public string SavedUserName { get; set; } = "friend";
         public string FavoriteTopic { get; set; } = "";
 
+        //Tracks the last topic the bot answered (conversation flow)
+        public string LastDiscussedTopic { get; set; } = "";
+
         //Declare the dictionary
         private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings
-
-
 
         //Constructor {fill dictionary here}
         public BotBrain()
         {
             //initialise dictionary
             knowledgeBase = new Dictionary<string, string[]>();
+
+            knowledgeBase.Add("how are you", new string[]
+        {
+            "I'm doing great today, thanks for asking 😄. How are you?",
+            "All my systems are running perfectly! 😄 Thanks for asking. What can I help you with?"
+        });
+
+            knowledgeBase.Add("purpose", new string[]
+            {
+            "My purpose is to educate you on cybersecurity topics! I can help you spot cyber threats and provide guidance on avoiding common traps. Type 'ask' to know more."
+            });
+
+            knowledgeBase.Add("ask", new string[]
+            {
+            "You can ask me for tips and guidance on password safety, phishing, and safe browsing. If you would like to know about other cybercrime topics as well, type 'topics' and we can get started :)"
+            });
 
             //Password safety
             knowledgeBase.Add("password", new string[]
@@ -65,16 +82,22 @@ namespace BreachByte_SecurityBot
 
             knowledgeBase.Add("attack", new string[]
             {
-            " Cybercriminals employ various tactics tailored to their targets, including: Spear Phishing, which involves highly targeted attacks using personal details " +
-            "Whaling, aimed at high-level executives to access sensitive data; Vishing and Angler Phishing, which utilize voice calls and social media messages, respectively " +
-            "Business Email Compromise (BEC), where executives are impersonated to divert funds; and Clone Phishing and Quishing, where legitimate emails are replicated to" +
-            "include malicious links or QR codes leading to fraudulent sites. You have to look out for red flags! Suspicious sender addresses, false urgency, poor grammar," +
+            " Cybercriminals employ various tactics tailored to their targets, including: Spear Phishing, which involves highly targeted attacks using personal details. ",
+            
+            "Whaling, aimed at high-level executives to access sensitive data. " ,
+            
+            "Vishing and Angler Phishing, which utilize voice calls and social media messages, respectively where executives are impersonated to divert funds; " +
+            
+            "Clone Phishing and Quishing, where legitimate emails are replicated to include malicious links or QR codes leading to fraudulent sites",
+            
+            "You have to look out for red flags! Suspicious sender addresses, false urgency, poor grammar," +
             " and hidden URLs are classic signs of a phishing attack. Type 'protect' if you want to know how to stay safe."
             });
 
             knowledgeBase.Add("protect", new string[]
             {
             "I saved the best part for last, [NAME]! You can protect yourself by using Multi-Factor Authentication (MFA) and keeping your spam filters updated. And remember my golden rule: 'When in doubt, don't click the link' 😅",
+            
             "Mitigating risks is key! Ensure your data is backed up to protect against ransomware, and always verify suspicious requests. Don't worry about memorizing it all, just remember: think before you click! 😅"
             });
 
@@ -186,6 +209,16 @@ namespace BreachByte_SecurityBot
                 return $"Nice to meet you, {SavedUserName}! I'll remember that. What cybersecurity topic are you interested in?";
             }
 
+            //Exit command
+            if (input == "exit" || input == "quit" || input.Contains("bye"))
+            {
+               System.Windows.Application.Current.Shutdown();
+
+                string goodbyeMsg = $"Stay safe out there in the digital world, [NAME]! I hope our chat was helpful, goodbye!";
+                return goodbyeMsg.Replace("[NAME]", SavedUserName);
+            }
+
+
             //Memory logic:Saving the Favorite Topic 
             if (input.Contains("interested in") || input.Contains("favourite is") || input.Contains("favorite is"))
             {
@@ -195,11 +228,29 @@ namespace BreachByte_SecurityBot
                 return $"Great! I'll remember that you're interested in {FavoriteTopic}. It's a crucial part of staying safe online. What would you like to know about it?";
             }
 
+            //Conversation flow
+            if (input.Contains("tell me more") || input.Contains("another tip") || input.Contains("explain more"))
+            {
+                // Check if we actually have a previous topic to talk about
+                if (!string.IsNullOrEmpty(LastDiscussedTopic))
+                {
+                    // Trick the bot into thinking the user typed the last topic again!
+                    // This forces it to skip down to the dictionary and grab a new random answer for that topic.
+                    input = LastDiscussedTopic;
+                }
+                else
+                {
+                    // If they say "tell me more" as their very first message, handle it gracefully
+                    return "I'm not sure what you want to hear more about! Try asking me about phishing or passwords first.";
+                }
+            }
+
             //Check if the exact word exists in dictionary
             foreach (var key in knowledgeBase.Keys)
             {
                 if (input.Contains(key))
                 { 
+                    LastDiscussedTopic = key; 
                     string[] possibleAnswers = knowledgeBase[key];
 
                     // Pick a random number based on how many answers we have
@@ -228,60 +279,6 @@ namespace BreachByte_SecurityBot
     }
 }
 
-        //main conversation loop
-      /*  public void Conversation(string userName)
-        {
-            
-            UserInterface ui = new UserInterface();
-            bool isActive = true;
-            ui.TypingEffect($"How can i help you today {userName}? If you would like to find out more type 'purpose', or to end our conversation type 'exit' or 'bye'. 😊"); //(CodeWith { Parveen Yadav }, 2023.)
-
-            while (isActive)
-            {
-                //get users response 
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.Write($"{userName}:");
-                string input = Console.ReadLine().ToLower();
-                Console.ResetColor();
-
-                //bots response system
-
-                if (input.Contains("how are you"))
-                {
-                    Console.WriteLine();
-                    ui.TypingEffect("I'm doing great today, thanks for asking 😄. How are you?");
-                    ui.PrintDivider();  
-                }
-
-                //Purpose
-                else if (input.Contains("purpose"))
-                {
-                    Console.WriteLine();
-                    ui.TypingEffect("\tMy purpose is to educate you on cybersecurity topics, such" +
-                        " \n\tas if you encounter cyber threats and provide guidance on avoiding common traps. Type 'What can i ask' to know more.");
-                    ui.PrintDivider();
-
-                }
-
-                //What can the user ask about
-                else if (input.Contains("ask you about") || input.Contains("what can i ask") || input.Contains("ask") || input.Contains("what do you do"))
-                {
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    ui.TypingEffect("\tYou can ask me for tips and guidance on either password safety, phishing and safe browsing." +
-                        "\n\tIf you would like to know about other cybercrime topics as well, type 'topics' and we can get started :)");
-                    ui.PrintDivider();
-
-                }
-
-                //If user is done
-              /*  else if (input == "exit" || input == "quit" || input.Contains("bye"))
-                {  
-                    Console.WriteLine() ;
-                    ui.TypingEffect($"\tStay safe out there in the digital world, {userName}! I hope our chat was helpful, goodbye!");
-                    isActive = false;
-                }
-
                 //Input validation 
 
                 //If user leaves response empty/blank or just presses the space bar
@@ -300,17 +297,7 @@ namespace BreachByte_SecurityBot
                     Console.WriteLine();
                     ui.TypingEffect("I didnt quite understand that? Could you please rephrase, or double check your spelling?");
                     Console.WriteLine();
-                }
-           }
-        
-        
-        
-        }
-
-
-
-    }
-}
+             
 
 /* Reference List
  * 
