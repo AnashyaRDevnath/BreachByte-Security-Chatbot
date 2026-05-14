@@ -26,7 +26,7 @@ namespace BreachByte_SecurityBot
         public string LastDiscussedTopic { get; set; } = "";
 
         //Declare the dictionary
-        private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text ket will map to a collection of multiple strings (Microsoft, n.d)
+        private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text key will map to a collection of multiple strings (Microsoft, n.d)
 
         //Constructor {fill dictionary here}
         public BotBrain()
@@ -186,7 +186,7 @@ namespace BreachByte_SecurityBot
                 {
             "Your identity can be stolen in any number of ways [NAME]. The syndicates can intercept banking transactions or hack into sites where you've made a cyber-purchase. " ,
 
-            "Thieves can obtain information from your social media profiles [ANME]; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic that contains your name and any other person information about you puts you at risk of identity theft. " ,
+            "Thieves can obtain information from your social media profiles [NAME]; or they can simply steal mail from your postbox or your dustbin - if fact any document, printed or electronic that contains your name and any other person information about you puts you at risk of identity theft. " ,
 
             "There are steps consumers can take to better protect their personal information, as well as products that keep watch over their identity, even when they can't." ,
 
@@ -231,7 +231,7 @@ namespace BreachByte_SecurityBot
                 // Simple logic to grab the topic they mentioned
                 string[] words = input.Split(' ');
                 FavoriteTopic = words[words.Length - 1];
-                return $"Great! I'll remember that you're interested in {FavoriteTopic}. It's a crucial part of staying safe online. What would you like to know about it?";
+                return $"Great! I'll remember that you're interested in {FavoriteTopic}. It's a crucial part of staying safe online. ";
             }
 
             //Sentiment detection
@@ -259,10 +259,10 @@ namespace BreachByte_SecurityBot
             //Exit command
             if (input == "exit" || input == "quit" || input.Contains("bye"))
             {
-                System.Windows.Application.Current.Shutdown();
-
+               
                 string goodbyeMsg = $"Stay safe out there in the digital world, [NAME]! I hope our chat was helpful, goodbye!";
                 return goodbyeMsg.Replace("[NAME]", SavedUserName);
+
             }
 
             //Conversation flow
@@ -278,7 +278,7 @@ namespace BreachByte_SecurityBot
                 else
                 {
                     // If they say "tell me more" as their very first message, handle it gracefully
-                    return "I'm not sure what you want to hear more about! Try asking me about phishing or passwords first.";
+                    return "I'm not sure what you want to hear more about! Type 'What can i ask about' to see avaialble cybercrime topics or type 'bye' to end our conversation😊.";
                 }
             }
 
@@ -300,7 +300,7 @@ namespace BreachByte_SecurityBot
                     finalAnswer = finalAnswer.Replace("[NAME]", SavedUserName);
 
                     //Occasionally remind them of their favorite topic! (For Memory & Recall)
-                    if (!string.IsNullOrEmpty(FavoriteTopic) && randomiser.Next(100) < 30) // 30% chance to happen
+                    if (!string.IsNullOrEmpty(FavoriteTopic) && randomiser.Next(100) < 45) //45% chance it will happen
                     {
                         finalAnswer += $"\n\n(Since you are interested in {FavoriteTopic}, you might want to review the security settings on your accounts!)";
                     }

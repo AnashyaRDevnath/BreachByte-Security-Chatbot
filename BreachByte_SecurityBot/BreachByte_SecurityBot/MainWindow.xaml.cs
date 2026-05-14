@@ -42,7 +42,7 @@ namespace BreachByte_SecurityBot
         //Added async so the app can wait between letters
         private async void ProcessMessage()
         {
-            string userInput = UserInputBox.Text;
+            string userInput = UserInputBox.Text.ToLower();
 
             if (string.IsNullOrWhiteSpace(userInput))
             {
@@ -56,7 +56,7 @@ namespace BreachByte_SecurityBot
             //Show user message
             TextBlock userText = new TextBlock();
             userText.Text = $"{myBot.SavedUserName}: {userInput}";
-            userText.Foreground = System.Windows.Media.Brushes.Cyan; // Makes your text Cyan!
+            userText.Foreground = System.Windows.Media.Brushes.Cyan; // Makes text Cyan!
             userText.Margin = new Thickness(0, 5, 0, 5);
             userText.TextWrapping = TextWrapping.Wrap;
 
@@ -70,7 +70,16 @@ namespace BreachByte_SecurityBot
             //Show the bot's answer (call typing method)
             await TypeMessageAsync("BreachByte: ", botAnswer, System.Windows.Media.Brushes.LightGreen);
 
-            
+            //exit logic (so app shuts down after user says bye
+            if (userInput == "exit" || userInput == "quit" || userInput.Contains("bye"))
+            {
+                // Wait for 2 seconds (2000 milliseconds) so they can read the goodbye
+                await Task.Delay(2000);
+
+                // This command tells Windows to close the specific WPF app safely
+                System.Windows.Application.Current.Shutdown();
+            }
+
             ChatScrollViewer.ScrollToEnd();
         }
 
