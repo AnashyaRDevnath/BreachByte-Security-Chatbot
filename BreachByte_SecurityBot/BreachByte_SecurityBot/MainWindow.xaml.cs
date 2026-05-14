@@ -17,6 +17,17 @@ namespace BreachByte_SecurityBot
             InitializeComponent();
             myBot = new BotBrain();
 
+            //Voice greeting
+            try
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("VoiceGreeting.wav");
+                player.Play(); 
+            }
+            catch
+            {
+                // If the audio fails, the app just silently ignores it and keeps working
+            }
+
             ChatHistoryBox.Items.Add("Welcome! How are you? What's your name? ");
 
         }
@@ -26,16 +37,16 @@ namespace BreachByte_SecurityBot
             string userInput = UserInputBox.Text;
             if (string.IsNullOrWhiteSpace(userInput)) return;
 
-            // 1. Show user message
+            //Show user message
             ChatHistoryBox.Items.Add($"{myBot.SavedUserName}: {userInput}");
 
-            // 2. Ask the BotBrain for an answer
+            //Ask the BotBrain for an answer
             string botAnswer = myBot.GetBotResponse(userInput);
 
-            // 3. Show the bot's answer
+            //Show the bot's answer
             ChatHistoryBox.Items.Add($"BreachByte: {botAnswer}");
 
-            // 4. Cleanup
+            //Cleanup
             UserInputBox.Clear();
             ChatHistoryBox.ScrollIntoView(ChatHistoryBox.Items[ChatHistoryBox.Items.Count - 1]);
         }
