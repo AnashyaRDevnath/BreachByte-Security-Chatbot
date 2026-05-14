@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace BreachByte_SecurityBot
@@ -28,7 +29,11 @@ namespace BreachByte_SecurityBot
                 // If the audio fails, the app just silently ignores it and keeps working
             }
 
-            ChatHistoryBox.Items.Add("Welcome! How are you? What's your name? ");
+            TextBlock welcomeText = new TextBlock();
+            welcomeText.Text = "BreachByte: Welcome! How are you? What's your name?";
+            welcomeText.Foreground = System.Windows.Media.Brushes.LightGreen;
+            welcomeText.Margin = new Thickness(0, 5, 0, 15);
+            ChatHistoryPanel.Children.Add(welcomeText);
 
         }
 
@@ -38,17 +43,31 @@ namespace BreachByte_SecurityBot
             if (string.IsNullOrWhiteSpace(userInput)) return;
 
             //Show user message
-            ChatHistoryBox.Items.Add($"{myBot.SavedUserName}: {userInput}");
+            TextBlock userText = new TextBlock();
+            userText.Text = $"{myBot.SavedUserName}: {userInput}";
+            userText.Foreground = System.Windows.Media.Brushes.Cyan; // Makes your text Cyan!
+            userText.Margin = new Thickness(0, 5, 0, 5);
+            userText.TextWrapping = TextWrapping.Wrap;
+
+            // Add the UI element to the panel, and scroll down
+            ChatHistoryPanel.Children.Add(userText);
+           ChatScrollViewer.ScrollToEnd(); 
 
             //Ask the BotBrain for an answer
             string botAnswer = myBot.GetBotResponse(userInput);
 
             //Show the bot's answer
-            ChatHistoryBox.Items.Add($"BreachByte: {botAnswer}");
+            TextBlock botText = new TextBlock();
+            botText.Text = $"BreachByte: {botAnswer}";
+            botText.Foreground = System.Windows.Media.Brushes.LightGreen;
+            botText.Margin = new Thickness(0, 5, 0, 15);
+            botText.TextWrapping = TextWrapping.Wrap;
+            ChatHistoryPanel.Children.Add(botText);
+           
 
             //Cleanup
             UserInputBox.Clear();
-            ChatHistoryBox.ScrollIntoView(ChatHistoryBox.Items[ChatHistoryBox.Items.Count - 1]);
+            ChatScrollViewer.ScrollToEnd();
         }
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
