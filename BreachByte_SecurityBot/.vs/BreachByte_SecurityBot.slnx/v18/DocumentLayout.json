@@ -26,8 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
+              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-11T18:06:15.687Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -65,18 +81,6 @@
               "ViewState": "AgIAAEsAAAAAAAAAAAAYwEsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-11T20:53:32.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
-              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-11T18:06:15.687Z",
               "EditorCaption": ""
             }
           ]
