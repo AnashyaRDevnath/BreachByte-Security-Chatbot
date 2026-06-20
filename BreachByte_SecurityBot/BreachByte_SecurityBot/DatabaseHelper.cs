@@ -31,7 +31,7 @@ namespace BreachByte_SecurityBot
             {
                 // This will help debug if the connection fails
                 Console.WriteLine($"Error connecting to database: {ex.Message}");
-                return false;
+                       return false;
             }
         }
 

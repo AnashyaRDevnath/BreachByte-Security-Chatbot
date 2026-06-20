@@ -154,5 +154,15 @@ namespace BreachByte_SecurityBot
                 ProcessMessage();
             }
         }
+
+        private void BtnRefreshTasks_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //  code the database fetch logic here 
+        }
+
+        private void BtnAddTask_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // code the Add Task logic here
+        }
     }
 }
