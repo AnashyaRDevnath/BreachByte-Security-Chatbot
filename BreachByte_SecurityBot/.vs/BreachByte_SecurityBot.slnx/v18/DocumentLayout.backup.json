@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +25,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,19 +47,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DatabaseSchema.sql ",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseSchema.sql",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\DatabaseSchema.sql",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseSchema.sql",
+              "RelativeToolTip": "BreachByte_SecurityBot\\DatabaseSchema.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-06-20T17:39:49.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\DatabaseHelper.cs",
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseHelper.cs",
               "RelativeToolTip": "BreachByte_SecurityBot\\DatabaseHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwCEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-19T21:18:26.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
@@ -62,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\Program.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\Program.cs",
@@ -74,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BotBrain.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BotBrain.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\BotBrain.cs",
@@ -86,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
