@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace BreachByte_SecurityBot
 {
@@ -19,6 +21,7 @@ namespace BreachByte_SecurityBot
         {
             InitializeComponent();
             myBot = new BotBrain();
+            LoadTasks();
 
             //Voice greeting
             try
@@ -36,8 +39,43 @@ namespace BreachByte_SecurityBot
             welcomeText.Foreground = System.Windows.Media.Brushes.LightGreen;
             welcomeText.Margin = new Thickness(0, 5, 0, 15);
             ChatHistoryPanel.Children.Add(welcomeText);
-
         }
+
+
+            private void LoadTasks()
+        {
+            DatabaseHelper db = new DatabaseHelper();
+
+            if (db.OpenConnection())
+            {
+                try
+                {
+                    // 1. Write the SQL query to fetch the tasks
+                    string query = "SELECT task_id, title, is_completed FROM cyber_tasks";
+
+                    // 2. Package the query and the connection together
+                    MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
+
+                    // 3. Use an Adapter to translate the MySQL data into C# data
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // 4. Inject the data into the XAML DataGrid
+                    TasksDataGrid.ItemsSource = dataTable.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading tasks: {ex.Message}");
+                }
+                finally
+                {
+                    // Always close the bridge when finished!
+                    db.CloseConnection();
+                }
+            }
+        }
+        
 
         //Added async so the app can wait between letters
         private async void ProcessMessage()
@@ -157,7 +195,7 @@ namespace BreachByte_SecurityBot
 
         private void BtnRefreshTasks_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            //  code the database fetch logic here 
+            LoadTasks();
         }
 
         private void BtnAddTask_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -120,7 +120,20 @@
                 <TextBlock Grid.Row="0" Text="[ SYSTEM TASKS ]" FontSize="18" FontFamily="Consolas" FontWeight="Bold" Foreground="#FF0ADCDC" Margin="0,0,0,15" HorizontalAlignment="Center"/>
 
                 <DataGrid x:Name="TasksDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" 
-                          Background="#1E1E28" Foreground="White" BorderBrush="#404055" BorderThickness="1" RowBackground="#1A1A24" AlternatingRowBackground="#181820" HeadersVisibility="Column">
+          Background="#1E1E28" Foreground="White" BorderBrush="#404055" BorderThickness="1" 
+          RowBackground="#1A1A24" AlternatingRowBackground="#181820" HeadersVisibility="Column">
+
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#1A1A24"/>
+                            <Setter Property="Foreground" Value="#FF0ADCDC"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="10,5,10,5"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter Property="BorderBrush" Value="#404055"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding task_id}" IsReadOnly="True" Width="40"/>
                         <DataGridTextColumn Header="Task" Binding="{Binding title}" Width="150"/>
