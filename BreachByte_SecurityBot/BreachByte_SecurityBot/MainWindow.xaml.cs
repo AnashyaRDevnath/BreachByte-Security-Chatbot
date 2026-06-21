@@ -212,5 +212,86 @@ namespace BreachByte_SecurityBot
             // 4. Once they close the popup, automatically refresh the grid to show the new task!
             LoadTasks();
         }
+
+        private void BtnToggleStatus_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // 1. Ensure the user actually selected a row first
+            if (TasksDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a task from the list to update.", "System Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            // 2. Extract the data from the selected row
+            DataRowView row = (DataRowView)TasksDataGrid.SelectedItem;
+            int taskId = Convert.ToInt32(row["task_id"]);
+            bool currentStatus = Convert.ToBoolean(row["is_completed"]);
+
+            // 3. Flip the boolean status (If true, make false. If false, make true)
+            bool newStatus = !currentStatus;
+
+            DatabaseHelper db = new DatabaseHelper();
+            if (db.OpenConnection())
+            {
+                try
+                {
+                    // 4. Secure parameterized UPDATE query
+                    string query = "UPDATE cyber_tasks SET is_completed = @status WHERE task_id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
+                    cmd.Parameters.AddWithValue("@status", newStatus);
+                    cmd.Parameters.AddWithValue("@id", taskId);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Database Error: {ex.Message}");
+                }
+                finally
+                {
+                    db.CloseConnection();
+                    LoadTasks(); // Instantly refresh the UI to show the new status!
+                }
+            }
+        }
+
+        private void BtnDeleteTask_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (TasksDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a task from the list to delete.", "System Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            // Ask for confirmation before permanently deleting!
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to permanently delete this task?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                DataRowView row = (DataRowView)TasksDataGrid.SelectedItem;
+                int taskId = Convert.ToInt32(row["task_id"]);
+
+                DatabaseHelper db = new DatabaseHelper();
+                if (db.OpenConnection())
+                {
+                    try
+                    {
+                        // Secure parameterized DELETE query
+                        string query = "DELETE FROM cyber_tasks WHERE task_id = @id";
+                        MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
+                        cmd.Parameters.AddWithValue("@id", taskId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Database Error: {ex.Message}");
+                    }
+                    finally
+                    {
+                        db.CloseConnection();
+                        LoadTasks();
+                    }
+                }
+            }
+        }
     }
 }

@@ -142,8 +142,13 @@
                 </DataGrid>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
-                    <Button x:Name="BtnRefreshTasks" Content="REFRESH" Width="100" Height="35" Margin="0,0,10,0" Foreground="Black" FontWeight="Bold" Background="#39FF14" BorderThickness="0" Click="BtnRefreshTasks_Click"/>
-                    <Button x:Name="BtnAddTask" Content="NEW TASK +" Width="120" Height="35" Foreground="White" FontWeight="Bold" Background="DarkMagenta" BorderThickness="0" Click="BtnAddTask_Click"/>
+                    <Button x:Name="BtnRefreshTasks" Content="REFRESH" Width="90" Height="35" Margin="0,0,10,0" Foreground="Black" FontWeight="Bold" Background="#39FF14" BorderThickness="0" Click="BtnRefreshTasks_Click"/>
+
+                    <Button x:Name="BtnToggleStatus" Content="TOGGLE DONE" Width="110" Height="35" Margin="0,0,10,0" Foreground="White" FontWeight="Bold" Background="#0088FF" BorderThickness="0" Click="BtnToggleStatus_Click"/>
+
+                    <Button x:Name="BtnDeleteTask" Content="DELETE" Width="90" Height="35" Margin="0,0,10,0" Foreground="White" FontWeight="Bold" Background="#FF3333" BorderThickness="0" Click="BtnDeleteTask_Click"/>
+
+                    <Button x:Name="BtnAddTask" Content="NEW TASK +" Width="110" Height="35" Foreground="White" FontWeight="Bold" Background="DarkMagenta" BorderThickness="0" Click="BtnAddTask_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

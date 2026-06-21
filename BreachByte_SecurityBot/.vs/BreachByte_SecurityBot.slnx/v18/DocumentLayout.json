@@ -42,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
+              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABEBAAAAAAAAAAAgwCQBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T20:53:32.263Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,19 +75,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAADwv9gAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T20:53:32.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "AddTaskWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\AddTaskWindow.xaml.cs",
@@ -83,8 +83,7 @@
               "RelativeToolTip": "BreachByte_SecurityBot\\AddTaskWindow.xaml.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAADwv0YAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T22:00:57.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-21T22:00:57.99Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\AddTaskWindow.xaml",
               "RelativeToolTip": "BreachByte_SecurityBot\\AddTaskWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-21T22:00:00.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-21T22:00:00.543Z"
             },
             {
               "$type": "Document",
