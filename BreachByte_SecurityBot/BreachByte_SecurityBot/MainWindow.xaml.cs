@@ -200,7 +200,17 @@ namespace BreachByte_SecurityBot
 
         private void BtnAddTask_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // code the Add Task logic here
+            // 1. Create the popup window
+            AddTaskWindow addTaskPopup = new AddTaskWindow();
+
+            // 2. Set its owner so it centers perfectly over the main app
+            addTaskPopup.Owner = this;
+
+            // 3. ShowDialog() stops the user from clicking the main app until the popup closes
+            addTaskPopup.ShowDialog();
+
+            // 4. Once they close the popup, automatically refresh the grid to show the new task!
+            LoadTasks();
         }
     }
 }

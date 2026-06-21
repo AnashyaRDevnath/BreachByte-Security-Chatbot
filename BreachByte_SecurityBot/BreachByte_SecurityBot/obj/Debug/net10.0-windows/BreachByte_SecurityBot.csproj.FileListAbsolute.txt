@@ -32,3 +32,5 @@ C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\Brea
 C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.csproj.AssemblyReference.cache
 C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachBy.F90C4812.Up2Date
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\AddTaskWindow.baml
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\AddTaskWindow.g.cs
