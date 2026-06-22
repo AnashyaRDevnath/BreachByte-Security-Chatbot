@@ -1,7 +1,7 @@
 **BreachByte Security Bot: CyberSecurity Awareness ChatBot**
 
 **Description:** 
-BreachByte is a modern Windows-based application designed to provide interactive cybersecurity education. Transitioning from a console environment to a fully realized Graphical User Interface (GUI), the program uses a terminal-themed dashboard to teach users about digital threats like phishing, malware, and identity theft. By combining empathetic sentiment detection with a personalized memory system, the bot offers a tailored learning experience aimed at improving general security literacy.
+BreachByte is an advanced, Windows-based WPF application designed to provide interactive cybersecurity education and task management. Utilizing a dual-column, neon-terminal aesthetic, the application seamlessly combines Natural Language Processing (NLP), dynamic UI gamification, and robust MySQL database integration. By pairing empathetic sentiment detection with a state-aware memory system and automated task tracking, BreachByte delivers a highly cohesive and professional user experience aimed at improving general security literacy.
 
 **Demo Video Link:**
 
@@ -11,6 +11,10 @@ Video 2: https://youtu.be/7bY_fkM7akc
 
 *POE PART 2*
 https://youtu.be/9fAQj6BUcyk 
+
+*FINAL POE Videos*
+Video 1: https://youtu.be/hFbHpYT0pFw
+Video 2: https://youtu.be/ehVnbIf2pQM
 
 **Working action screenshots:**
 <img width="1435" height="700" alt="Screenshot 2026-03-31 234321" src="https://github.com/user-attachments/assets/d4d5e595-12a1-4a7f-8d55-fd337c0828f9" />
@@ -23,40 +27,41 @@ https://youtu.be/9fAQj6BUcyk
 <img width="1918" height="958" alt="Screenshot 2026-03-31 234329" src="https://github.com/user-attachments/assets/799f8ae6-8341-42d5-8ea9-3c4fbec2068f" />
 
 **System Setup:**
-1. Software Requirements: Ensure you have Visual Studio 2022 installed with the .NET Desktop Development workload enabled.
-   Download: Clone or download this repository as a ZIP file and extract it to a folder.
-2. Open Project: Navigate to the folder and double-click the .sln file to launch the project in Visual Studio.
-3. Audio Asset: Ensure the file VoiceGreeting.wav is present in the project folder. In Visual Studio, right-click this         file, select Properties, and set Copy to Output Directory to "Copy if newer".
-4. Run: Press F5 or click the green Start button at the top of the screen.
+-Software Requirements: Ensure you have Visual Studio 2022 installed with the .NET Desktop Development workload enabled, alongside MySQL Server and MySQL Workbench for the database.
+-Database Setup: Execute the provided SQL script to generate the cyber_tasks table. Update the DatabaseHelper.cs connection string with your local MySQL credentials.
+-Open Project: Clone or download this repository, extract it, and double-click the .sln file to launch the project in Visual Studio.
+-Audio Assets: Ensure the following files are present in your project folder: VoiceGreeting.wav, CorrectSound.wav, IncorrectSound.wav, and Applause.wav. Right-click each in Visual Studio, select Properties, and set Copy to Output Directory to "Copy if newer".
+-Run: Press F5 or click the Start button to initialize the terminal.
 
 **Usage Instructions:**
-Once the terminal initializes and asks for your name, you can interact with BreachByte by typing commands into the input box and pressing Enter.
+Interact with BreachByte using the Quick Access Navigation Bar, or by typing conversational commands into the terminal.
 
-*Standard Commands:*
--Purpose - Displays the bot's core educational mission.
--Topics - Shows a list of all cybersecurity subjects you can learn about.
--Bye - Ends the session with a personalized closing message.
+**Standard Commands & Navigation:**
+-[ LAUNCH CYBER QUIZ ] or type "start game": Launches the interactive, gamified cybersecurity quiz.
+-[ VIEW TOPICS ] or type "what can i ask": Displays the bot's core educational mission and available learning modules.
+-[ SYSTEM HISTORY ] or type "show activity log": Pulls up a chronological summary of your current session actions.
 
-*Educational Topics (Copy & Paste):*
--Phishing - Triggers an in-depth guide on identifying malicious emails and links.
--Password safety - Provides tips on creating strong, unhackable passwords.
--Safe Browsing - Explains how to protect your device while surfing the web.
--Banking scam - Details specific financial fraud tactics common in South Africa.
--Malware and Ransomware - Breaks down how viruses work and how to prevent infection.
--Identity Theft - Teaches the signs of identity fraud and recovery steps.
+**Task Management (NLP Engine):**
+-Add a Task: Type conversational commands such as "Add a new task to update my firewall" or "Make a task for a malware scan". The NLP engine will dynamically extract the task, save it to the SQL database, and instantly refresh the UI.
+-Manage Tasks: Use the right-hand System Tasks grid to mark items as complete or delete them.
+-Educational Topics:
+-Phishing: Guide on identifying malicious emails.
+-Password Safety: Tips on creating strong, unhackable passwords.
+-Safe Browsing: Device protection while surfing the web.
+-Banking Scam: Financial fraud tactics common in South Africa.
+-Malware and Ransomware: Breaking down virus prevention.
+-Identity Theft: Signs of identity fraud and recovery steps.
 
 **Current Functionalities:**
--Advanced WPF GUI: A custom-styled dashboard featuring linear gradients, drop-shadow glows, and rounded corners.
--Asynchronous Typing Effect: Simulates a real-time conversation by rendering text letter-by-letter without freezing the      application window.
--Contextual Memory: Extracts the user's name at the start and uses it throughout the session, with the name dynamically      bolded for emphasis.
--Sentiment Analysis: Detects user emotions (Happy, Worried, Sad) and responds with empathetic prefixes before providing      technical data.
--Robust Input Validation: Detects empty inputs or whitespace and provides a system-level warning to guide the user.
+-Advanced WPF GUI: A custom-styled dashboard featuring linear gradients, drop-shadow glows, ControlTemplates, and a responsive dual-column layout.
+-Gamification & Async Audio: An object-oriented quiz engine featuring dynamic UI switching and asynchronous audio feedback that prevents visual thread freezing.
+-MySQL Database Integration: Full CRUD capability syncing the GUI DataGrid with a backend SQL database to ensure persistent storage of user tasks.
+-Regex-Powered NLP: A Natural Language Processing engine utilizing Regular Expressions to dynamically extract intents, paired with short-term state memory to   handle multi-turn conversational prompts (e.g., Yes/No reminder confirmations).
+-Asynchronous Typing Effect: Simulates a real-time conversation by rendering text letter-by-letter without locking the application window.
+-Contextual Memory & Sentiment: Extracts the user's name and detects user emotions to provide empathetic, tailored responses.
 
 **Stage of the project:**
-The current stage is just Part 2 out of Part 3. The core logic and graphical interface are fully integrated.
-
-**Future Advancements:**
-Part 3 will focus on adding interactive elements, such as a cybersecurity task list or a mini-game, alongside a final professional video presentation.
+Final (Part 3 Completed). The core logic, graphical interface, database integration, and gamified elements are fully implemented and integrated into a single cohesive application.
 
 **Reference List:**
 
@@ -88,9 +93,15 @@ Microsoft, n.d. Keyboard Class. Microsoft Learn. [Online]. Available at: <https:
 
 Microsoft, 2024. LinearGradientBrush Class (System.Windows.Media). Microsoft Learn. [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.lineargradientbrush> [Accessed: 14 May 2026]. 
 
+Microsoft, 2024. Regular Expression Language - Quick Reference. [online] Available at: <https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference> [Accessed 22 June 2026].
+
 Microsoft, 2025. Routed events overview. Microsoft Learn. [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/desktop/wpf/events/routed-events-overview> [Accessed 12 May 20206].
 
-Microsoft, 2025. Xml:space Handling in XAML. Microsoft Learn. [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/desktop/xaml-services/xml-space-handling> [Accessed 12 May 2026]
+Microsoft, 2024d. SoundPlayer Class. [online] Available at: https://learn.microsoft.com/en-us/dotnet/api/system.media.soundplayer [Accessed 22 June 2026].
+
+Microsoft, 2024e. Walkthrough: Create a button by using XAML. [online] Available at: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/walkthrough-create-a-button-by-using-xaml?source=recommendations [Accessed 22 June 2026].
+
+Microsoft, 2025. Xml:space Handling in XAML. Microsoft Learn. [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/desktop/xaml-services/xml-space-handling> [Accessed 12 May 2026] 
 
 Miken32, 2024. How to show emoji in c# console output? [Online]. Available at:<https://stackoverflow.com/questions/67508469/how-to-show-emoji-in-c-sharp-console-output> [Accessed 30 March 2026].
 
