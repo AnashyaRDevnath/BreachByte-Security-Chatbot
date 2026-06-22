@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\cyberquestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\cyberquestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\quizwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\quizwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\quizwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\quizwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\botbrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\botbrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\quizwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\quizwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\addtaskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\databaseschema.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|c:\\users\\anash\\onedrive\\documents\\prog6221\\prog6221-g1-2026-poe-anashya4422\\breachbyte_securitybot\\breachbyte_securitybot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56E6FBA-5A07-0A7D-EDEE-523D0E047C51}|BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj|solutionrelative:breachbyte_securitybot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,38 +55,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CyberQuestions.cs",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\CyberQuestions.cs",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\CyberQuestions.cs",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\CyberQuestions.cs",
-              "RelativeToolTip": "BreachByte_SecurityBot\\CyberQuestions.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "Title": "QuizWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml.cs",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\QuizWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml.cs",
+              "RelativeToolTip": "BreachByte_SecurityBot\\QuizWindow.xaml.cs",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAqwMcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-22T11:32:56.24Z",
+              "WhenOpened": "2026-06-22T11:38:06.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "QuizWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\QuizWindow.xaml",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml",
-              "RelativeToolTip": "BreachByte_SecurityBot\\QuizWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-22T11:30:40.952Z",
+              "Title": "AudioPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\AudioPlayer.cs",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\AudioPlayer.cs",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\AudioPlayer.cs",
+              "RelativeToolTip": "BreachByte_SecurityBot\\AudioPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T12:08:07.119Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
-              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-11T18:06:15.687Z"
             },
             {
               "$type": "Document",
@@ -96,7 +86,7 @@
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\BotBrain.cs",
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BotBrain.cs",
               "RelativeToolTip": "BreachByte_SecurityBot\\BotBrain.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABcBAAAAAAAAAAAowDYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T21:45:37.91Z",
               "EditorCaption": ""
@@ -104,18 +94,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml",
+              "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-11T18:06:15.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QuizWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml",
+              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\QuizWindow.xaml",
+              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\QuizWindow.xaml",
+              "RelativeToolTip": "BreachByte_SecurityBot\\QuizWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-22T11:30:40.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\MainWindow.xaml.cs",
               "RelativeToolTip": "BreachByte_SecurityBot\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAADwv7kAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAALAAAAAAAAAAAADwv8cAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-11T20:53:32.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AddTaskWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\AddTaskWindow.xaml",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\AddTaskWindow.xaml",
@@ -126,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\DatabaseHelper.cs",
@@ -138,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DatabaseSchema.sql",
               "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\DatabaseSchema.sql",
               "RelativeDocumentMoniker": "BreachByte_SecurityBot\\DatabaseSchema.sql",
@@ -146,18 +159,6 @@
               "RelativeToolTip": "BreachByte_SecurityBot\\DatabaseSchema.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2026-06-20T17:39:49.396Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\Program.cs",
-              "RelativeDocumentMoniker": "BreachByte_SecurityBot\\Program.cs",
-              "ToolTip": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\Program.cs",
-              "RelativeToolTip": "BreachByte_SecurityBot\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T16:16:36.065Z"
             }
           ]
         }

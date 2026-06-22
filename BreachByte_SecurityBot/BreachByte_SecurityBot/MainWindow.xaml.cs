@@ -184,6 +184,22 @@ namespace BreachByte_SecurityBot
                 await TypeMessageAsync("BreachByte: ", $"Task added with the description \"{taskDescription}\". Would you like a reminder?", System.Windows.Media.Brushes.LightGreen);
                 LoadTasks();
             }
+            else if (userInput == "quiz" || userInput == "start game")
+            {
+                // 1. Pass Data IN: Send the bot's saved username to the Quiz Window
+                // (Make sure 'myBot.SavedUserName' matches whatever variable you used in Part 1!)
+                QuizWindow quiz = new QuizWindow(myBot.SavedUserName);
+
+                // 2. Pauses the chat and opens the Quiz on top
+                quiz.ShowDialog();
+
+                // 3. Pass Data OUT: This code only runs AFTER the user clicks "CLOSE SIMULATOR"
+                // We pull the FinalScore property out and the bot comments on it:
+                await TypeMessageAsync("BreachByte: ", $"Welcome back, {myBot.SavedUserName}! I see you scored {quiz.FinalScore}/11 on the simulator. Your cybersecurity training is officially complete!", System.Windows.Media.Brushes.LightGreen);
+
+                return;
+            }
+
             // ==========================================
             // 🤖 NORMAL CHATBOT LOGIC (PART 1 & 2)
             // ==========================================
