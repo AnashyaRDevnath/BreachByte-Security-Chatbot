@@ -16,53 +16,74 @@ namespace BreachByte_SecurityBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        // NEW: Activity Log storage and state tracker
+        // ==========================================
+        // FIELDS
+        // ==========================================
+
+        // Activity log storage
         private List<string> activityLog = new List<string>();
+
+        // State tracker for the "show more" activity log feature
         private bool isWaitingForShowMore = false;
+
+        // Stores tasks added via NLP (natural language commands)
         private List<string> userTasks = new List<string>();
 
-        //Instantiate BotBrain
+        private string pendingTask = "";
+
+        // The chatbot brain
         private BotBrain myBot;
 
-        // These tell the bot if it's currently in the middle of creating a task
+        // State trackers for the reminder flow
         private bool isWaitingForReminder = false;
         private int currentPendingTaskId = -1;
 
+        // ==========================================
+        // CONSTRUCTOR
+        // ==========================================
 
-        //Constructor
         public MainWindow()
         {
             InitializeComponent();
             myBot = new BotBrain();
             LoadTasks();
 
-            //Voice greeting
+            // Play voice greeting on startup
             try
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer("VoiceGreeting.wav");
+                string greetingPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VoiceGreeting.wav");
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(greetingPath);
                 player.Play();
             }
             catch
             {
-                //If the audio fails, the app just silently ignores it and keeps working
+                // If the audio fails, the app silently ignores it and keeps working
             }
 
+            // Display the initial welcome message in the chat
             TextBlock welcomeText = new TextBlock();
             welcomeText.Text = "BreachByte: Welcome! How are you? What's your name?";
             welcomeText.Foreground = System.Windows.Media.Brushes.LightGreen;
             welcomeText.Margin = new Thickness(0, 5, 0, 15);
-            ChatHistoryPanel.Children.Add(welcomeText); 
-
-
+            ChatHistoryPanel.Children.Add(welcomeText);
         }
 
+        // ==========================================
+        // ACTIVITY LOG
+        // ==========================================
+
+        // Adds a timestamped entry to the activity log
         private void LogActivity(string description)
         {
-            // Generates a timestamp like [15:22:34]
             string timestamp = DateTime.Now.ToString("HH:mm:ss");
             activityLog.Add($"[{timestamp}] {description}");
         }
 
+        // ==========================================
+        // DATABASE METHODS
+        // ==========================================
+
+        // Fetches all tasks from the database and binds them to the DataGrid
         private void LoadTasks()
         {
             DatabaseHelper db = new DatabaseHelper();
@@ -71,18 +92,17 @@ namespace BreachByte_SecurityBot
             {
                 try
                 {
-                    // 1. Write the SQL query to fetch the tasks
+                    // Fetch all task fields needed for the DataGrid
                     string query = "SELECT task_id, title, reminder_date, is_completed FROM cyber_tasks";
 
-                    // 2. Package the query and the connection together
                     MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
 
-                    // 3. Use an Adapter to translate the MySQL data into C# data
+                    // Use an adapter to translate MySQL data into a C# DataTable
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
-                    // 4. Inject the data into the XAML DataGrid
+                    // Bind the data to the XAML DataGrid
                     TasksDataGrid.ItemsSource = dataTable.DefaultView;
                 }
                 catch (Exception ex)
@@ -91,57 +111,60 @@ namespace BreachByte_SecurityBot
                 }
                 finally
                 {
-                    // Always close the bridge when finished!
+                    // Always close the connection when finished
                     db.CloseConnection();
                 }
             }
         }
-        
 
-        //Added async so the app can wait between letters
+        // ==========================================
+        // CHAT PROCESSING
+        // ==========================================
+
+        // Handles all incoming user messages — routes to the correct logic block
         private async void ProcessMessage()
         {
             string originalUserInput = UserInputBox.Text;
             string userInput = originalUserInput.ToLower().Trim();
 
+            // Guard: do nothing if the input box is empty
             if (string.IsNullOrWhiteSpace(userInput))
             {
                 await TypeMessageAsync("BreachByte: ", "Oops! Looks like you forgot to type something 😅. Type 'What can i ask about' to see available cybercrime topic options or type 'Bye' to end our conversation😊", System.Windows.Media.Brushes.DarkMagenta);
                 return;
             }
 
-            //Cleanup
+            // Clear input and display the user's message in the chat
             UserInputBox.Clear();
 
-            //Show user message
             TextBlock userText = new TextBlock();
             userText.Text = $"{myBot.SavedUserName}: {originalUserInput}";
-            userText.Foreground = System.Windows.Media.Brushes.Cyan; // Makes text Cyan!
+            userText.Foreground = System.Windows.Media.Brushes.Cyan;
             userText.Margin = new Thickness(0, 5, 0, 5);
             userText.TextWrapping = TextWrapping.Wrap;
 
-            //Add the UI element to the panel, and scroll down
             ChatHistoryPanel.Children.Add(userText);
             ChatScrollViewer.ScrollToEnd();
 
             // ==========================================
-            // 🚀 NEW: TASK INTERCEPTION & DATABASE LOGIC
+            // TASK REMINDER FLOW
             // ==========================================
+
             if (isWaitingForReminder)
             {
-                // 1. Extract any numbers from their response (e.g., "in 3 days" or just "3" -> 3)
+                // Extract any digits from their response (e.g., "in 3 days" or just "3")
                 string numberOnly = new String(userInput.Where(Char.IsDigit).ToArray());
 
-                // 2. Did they say No?
                 if (userInput.Contains("no") && string.IsNullOrEmpty(numberOnly))
                 {
+                    // User declined a reminder
                     await TypeMessageAsync("BreachByte: ", "No problem! Task saved without a reminder.", System.Windows.Media.Brushes.LightGreen);
                     isWaitingForReminder = false;
                     currentPendingTaskId = -1;
                 }
-                // 3. Did they provide a number? (Either "yes in 3 days" OR they are just answering "3")
                 else if (!string.IsNullOrEmpty(numberOnly) && int.TryParse(numberOnly, out int days))
                 {
+                    // User provided a number of days — save the reminder date
                     DateTime reminderDate = DateTime.Now.AddDays(days);
 
                     DatabaseHelper db = new DatabaseHelper();
@@ -157,67 +180,95 @@ namespace BreachByte_SecurityBot
 
                     await TypeMessageAsync("BreachByte: ", $"Got it! I'll remind you in {days} days.", System.Windows.Media.Brushes.LightGreen);
 
-                    // Reset state and refresh UI!
+                    // Reset reminder state and refresh the task list
                     isWaitingForReminder = false;
                     currentPendingTaskId = -1;
                     LoadTasks();
                 }
-                // 4. Did they say Yes, but forgot to give a number? (This fixes your screenshot issue!)
                 else if (userInput.Contains("yes") || userInput.Contains("please") || userInput.Contains("remind"))
                 {
+                    // User said yes but forgot to provide a number
                     await TypeMessageAsync("BreachByte: ", "Awesome! In how many days would you like me to remind you? (e.g., type '3' or 'in 3 days')", System.Windows.Media.Brushes.LightGreen);
-                    // We use 'return' here so it DOES NOT reset the memory. It keeps waiting!
-                    return;
+                    return; // Keep waiting — do not reset state
                 }
-                // 5. Bot is confused
                 else
                 {
+                    // Unrecognised response
                     await TypeMessageAsync("BreachByte: ", "I didn't quite catch that. Would you like a reminder? (Type 'yes' or 'no')", System.Windows.Media.Brushes.LightGreen);
                     return;
                 }
             }
-            else if (userInput.StartsWith("add task -"))
+
+            // ==========================================
+            // DIRECT TASK COMMAND (e.g. "add task - Update antivirus")
+            // ==========================================
+
+            else if (Regex.IsMatch(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)"))
             {
-                // Extract the exact task name by removing "add task - "
-                int prefixLength = "add task - ".Length;
-                string taskTitle = originalUserInput.Substring(prefixLength).Trim();
+                Match match = Regex.Match(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)(?:\s+for\s+me)?(?:\s+to)?\s*(.*)");
 
-                // FIX: The description now dynamically uses whatever title you typed!
-                string taskDescription = $"Automated cybersecurity task: {taskTitle}";
-
-                DatabaseHelper db = new DatabaseHelper();
-                if (db.OpenConnection())
+                if (match.Success)
                 {
-                    string insertQuery = "INSERT INTO cyber_tasks (title, description) VALUES (@title, @desc); SELECT LAST_INSERT_ID();";
-                    MySqlCommand cmd = new MySqlCommand(insertQuery, db.GetConnection());
-                    cmd.Parameters.AddWithValue("@title", taskTitle);
-                    cmd.Parameters.AddWithValue("@desc", taskDescription);
 
-                    currentPendingTaskId = Convert.ToInt32(cmd.ExecuteScalar());
-                    db.CloseConnection();
+                    string extractedTask = match.Groups[1].Value.Trim();
+
+                    // Failsafe: if they didn't type a task name
+                    if (string.IsNullOrEmpty(extractedTask))
+                    {
+                        await TypeMessageAsync("BreachByte: ", "I can certainly add a task for you! What would you like the task to be?", System.Windows.Media.Brushes.LightGreen);
+                        return;
+                    }
+
+                    string taskDescription = $"Automated cybersecurity task: {extractedTask}";
+                    userTasks.Add(extractedTask);
+                    LogActivity($"Task added: '{extractedTask}'");
+
+                    // DATABASE INTEGRATION
+                    DatabaseHelper db = new DatabaseHelper();
+                    if (db.OpenConnection())
+                    {
+                        string insertQuery = "INSERT INTO cyber_tasks (title, description) VALUES (@title, @desc); SELECT LAST_INSERT_ID();";
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, db.GetConnection());
+                        cmd.Parameters.AddWithValue("@title", extractedTask);
+                        cmd.Parameters.AddWithValue("@desc", taskDescription);
+
+                        // Save the ID in case they say "yes" to the reminder!
+                        currentPendingTaskId = Convert.ToInt32(cmd.ExecuteScalar());
+                        db.CloseConnection();
+                    }
+
+                 
+                    LoadTasks();
+
+                    isWaitingForReminder = true;
+                    pendingTask = extractedTask; // Saves it in the bot's short-term memory
+
+                    await TypeMessageAsync("BreachByte: ", $"Task added: '{extractedTask}'. Would you like to set a reminder for this?", System.Windows.Media.Brushes.LightGreen);
                 }
-
-                isWaitingForReminder = true;
-                await TypeMessageAsync("BreachByte: ", $"Task added with the description \"{taskDescription}\". Would you like a reminder?", System.Windows.Media.Brushes.LightGreen);
-                LoadTasks();
+                return;
             }
+
+            // ==========================================
+            // QUIZ LAUNCHER
+            // ==========================================
+
             else if (userInput == "quiz" || userInput == "start game")
             {
-                LogActivity("User initiated the Cybersecurity Training Simulator."); // <--- ADD THIS
+                LogActivity("User initiated the Cybersecurity Training Simulator.");
 
                 QuizWindow quiz = new QuizWindow(myBot.SavedUserName);
                 quiz.ShowDialog();
 
-                LogActivity($"Quiz completed. Final Score: {quiz.FinalScore}/11."); // <--- ADD THIS
-                
-                
+                LogActivity($"Quiz completed. Final Score: {quiz.FinalScore}/11.");
+
                 await TypeMessageAsync("BreachByte: ", $"Welcome back, {myBot.SavedUserName}! I see you scored {quiz.FinalScore}/11 on the simulator.", System.Windows.Media.Brushes.LightGreen);
                 return;
             }
 
             // ==========================================
-            // 📝 NEW: ACTIVITY LOG VIEWER
+            // ACTIVITY LOG VIEWER
             // ==========================================
+
             else if (userInput == "show activity log" || userInput == "what have you done for me?")
             {
                 LogActivity("User requested to view the activity log.");
@@ -228,56 +279,52 @@ namespace BreachByte_SecurityBot
                     return;
                 }
 
-                // Grab ONLY the last 5 entries to keep it concise
+                // Display only the last 5 entries to keep it concise
                 int displayCount = Math.Min(5, activityLog.Count);
                 var recentLogs = activityLog.Skip(Math.Max(0, activityLog.Count - displayCount)).ToList();
 
                 string logMessage = "Here is a summary of my recent actions:\n\n";
                 for (int i = 0; i < recentLogs.Count; i++)
-                {
                     logMessage += $"{i + 1}. {recentLogs[i]}\n";
-                }
 
-                // If there are more than 5 items, offer the 'show more' feature
+                // Offer "show more" if there are more than 5 entries
                 if (activityLog.Count > 5)
                 {
                     logMessage += "\n(Type 'show more' to see the full history)";
-                    isWaitingForShowMore = true; // Turn the flag on
+                    isWaitingForShowMore = true;
                 }
 
                 await TypeMessageAsync("BreachByte: ", logMessage, System.Windows.Media.Brushes.LightGreen);
                 return;
             }
-            // Handles the "show more" follow-up command
+
+            // Handles the "show more" follow-up for the activity log
             else if (userInput == "show more" && isWaitingForShowMore == true)
             {
-                isWaitingForShowMore = false; // Turn the flag off so it doesn't trigger accidentally later
+                isWaitingForShowMore = false;
 
                 string logMessage = "Here is my complete activity history:\n\n";
                 for (int i = 0; i < activityLog.Count; i++)
-                {
                     logMessage += $"{i + 1}. {activityLog[i]}\n";
-                }
 
                 await TypeMessageAsync("BreachByte: ", logMessage, System.Windows.Media.Brushes.LightGreen);
                 return;
             }
 
             // ==========================================
-            // 🧠 NEW: NLP TASK & REMINDER ENGINE (TASK 3)
+            // NLP TASK ENGINE
             // ==========================================
 
-            // 1. MATCHING REMINDERS: "Remind me to update my password tomorrow"
+            // Matches natural language task commands e.g. "create a task to update my password"
             else if (Regex.IsMatch(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)"))
             {
-                // \s* means "0 or more spaces" to catch messy typing
                 Match match = Regex.Match(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)(?:\s+for\s+me)?(?:\s+to)?\s*(.*)");
 
                 if (match.Success)
                 {
                     string extractedTask = match.Groups[1].Value.Trim();
 
-                    // NEW: If the user types "add a task" but doesn't say WHAT the task is!
+                    // If the user said "add a task" without specifying what it is
                     if (string.IsNullOrEmpty(extractedTask))
                     {
                         await TypeMessageAsync("BreachByte: ", "I can certainly add a task for you! What would you like the task to be?", System.Windows.Media.Brushes.LightGreen);
@@ -286,6 +333,7 @@ namespace BreachByte_SecurityBot
 
                     userTasks.Add(extractedTask);
                     LogActivity($"Task added: '{extractedTask}'");
+                    isWaitingForReminder = true;
 
                     await TypeMessageAsync("BreachByte: ", $"Task added: '{extractedTask}'. Would you like to set a reminder for this?", System.Windows.Media.Brushes.LightGreen);
                 }
@@ -293,37 +341,36 @@ namespace BreachByte_SecurityBot
             }
 
             // ==========================================
-            // 🤖 NORMAL CHATBOT LOGIC (PART 1 & 2)
+            // NORMAL CHATBOT LOGIC
             // ==========================================
+
             else
             {
-                // Ask the BotBrain for an answer
                 string botAnswer = myBot.GetBotResponse(userInput);
 
-                // If the brain lit up our bridge variable, log it!
+                // Log the topic if the brain triggered one
                 if (myBot.TopicJustTriggered != "")
-                {
                     LogActivity($"Provided NLP information on: {myBot.TopicJustTriggered}");
-                }
 
-                // Show the bot's answer (call typing method)
                 await TypeMessageAsync("BreachByte: ", botAnswer, System.Windows.Media.Brushes.LightGreen);
             }
 
-            //exit logic (so app shuts down after user says bye)
+            // Exit logic — shut down the app after the goodbye message
             if (userInput == "exit" || userInput == "quit" || userInput.Contains("bye"))
             {
-                // Wait for 2 seconds (2000 milliseconds) so they can read the goodbye
                 await Task.Delay(2000);
-
-                // This command tells Windows to close the specific WPF app safely
                 System.Windows.Application.Current.Shutdown();
             }
 
             ChatScrollViewer.ScrollToEnd();
         }
 
-        //Typing effect for bot
+        // ==========================================
+        // TYPING EFFECT
+        // ==========================================
+
+        // Renders the bot's response character by character with a typing animation.
+        // Bolds the user's name whenever it appears in the message.
         private async Task TypeMessageAsync(string prefix, string message, SolidColorBrush textColor)
         {
             TextBlock botMsg = new TextBlock();
@@ -334,45 +381,41 @@ namespace BreachByte_SecurityBot
 
             ChatHistoryPanel.Children.Add(botMsg);
 
-            // 1. Add the prefix (BreachByte:)
+            // Add the "BreachByte: " prefix
             botMsg.Inlines.Add(new Run(prefix));
 
-            // 2. Identify the name we are looking for
             string userName = myBot.SavedUserName;
 
-            // We create a "Current Run" to type into
+            // Start typing into a regular Run
             Run currentRun = new Run();
             botMsg.Inlines.Add(currentRun);
 
-            // 3. The Typing Loop
             for (int i = 0; i < message.Length; i++)
             {
-                // Check if the next chunk of letters matches the User's Name
+                // Check if the upcoming characters match the user's name
                 if (userName.Length > 0 && i + userName.Length <= message.Length &&
                     message.Substring(i, userName.Length).Equals(userName, StringComparison.OrdinalIgnoreCase))
                 {
-                    //Create a bold Run
+                    // Type the name in bold white
                     Run boldName = new Run();
                     boldName.FontWeight = FontWeights.Bold;
-                    boldName.Foreground = System.Windows.Media.Brushes.White; // Make it pop in White!
+                    boldName.Foreground = System.Windows.Media.Brushes.White;
                     botMsg.Inlines.Add(boldName);
 
-                    // Type the name out in bold
                     for (int j = 0; j < userName.Length; j++)
                     {
                         boldName.Text += message[i];
                         i++;
-                        await Task.Delay(15); //(Microsoft, 2025)
+                        await Task.Delay(15); // (Microsoft, 2025)
                     }
-                    i--; // Adjust index because the outer loop will increment it
+                    i--; // Adjust index as the outer loop will increment it
 
-                    // Switch back to a regular Run for the rest of the sentence
+                    // Resume typing in a regular Run
                     currentRun = new Run();
                     botMsg.Inlines.Add(currentRun);
                 }
                 else
                 {
-                    // Just normal typing
                     currentRun.Text += message[i];
                     await Task.Delay(15);
                 }
@@ -381,18 +424,20 @@ namespace BreachByte_SecurityBot
             }
         }
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)  //(Microsoft, 2025)
+        // ==========================================
+        // BUTTON & INPUT EVENT HANDLERS
+        // ==========================================
+
+        private void SendButton_Click(object sender, RoutedEventArgs e) // (Microsoft, 2025)
         {
             ProcessMessage();
         }
 
-        private void UserInputBox_KeyDown(object sender, KeyEventArgs e)  // (Microsoft, 2025) and (Microsoft, n.d)
+        private void UserInputBox_KeyDown(object sender, KeyEventArgs e) // (Microsoft, 2025) and (Microsoft, n.d.)
         {
-            // Check if the user pressed the 'Enter' key on their keyboard
+            // Trigger send when the user presses Enter
             if (e.Key == System.Windows.Input.Key.Enter)
-            {
                 ProcessMessage();
-            }
         }
 
         private void BtnRefreshTasks_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -402,34 +447,28 @@ namespace BreachByte_SecurityBot
 
         private void BtnAddTask_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // 1. Create the popup window
+            // Open the Add Task popup, centred over the main window
             AddTaskWindow addTaskPopup = new AddTaskWindow();
-
-            // 2. Set its owner so it centers perfectly over the main app
             addTaskPopup.Owner = this;
-
-            // 3. ShowDialog() stops the user from clicking the main app until the popup closes
             addTaskPopup.ShowDialog();
 
-            // 4. Once they close the popup, automatically refresh the grid to show the new task!
+            // Refresh the DataGrid after the popup closes
             LoadTasks();
         }
 
         private void BtnToggleStatus_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            // 1. Ensure the user actually selected a row first
             if (TasksDataGrid.SelectedItem == null)
             {
                 MessageBox.Show("Please select a task from the list to update.", "System Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
-            // 2. Extract the data from the selected row
             DataRowView row = (DataRowView)TasksDataGrid.SelectedItem;
             int taskId = Convert.ToInt32(row["task_id"]);
             bool currentStatus = Convert.ToBoolean(row["is_completed"]);
 
-            // 3. Flip the boolean status (If true, make false. If false, make true)
+            // Flip the completion status
             bool newStatus = !currentStatus;
 
             DatabaseHelper db = new DatabaseHelper();
@@ -437,7 +476,6 @@ namespace BreachByte_SecurityBot
             {
                 try
                 {
-                    // 4. Secure parameterized UPDATE query
                     string query = "UPDATE cyber_tasks SET is_completed = @status WHERE task_id = @id";
                     MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
                     cmd.Parameters.AddWithValue("@status", newStatus);
@@ -451,7 +489,7 @@ namespace BreachByte_SecurityBot
                 finally
                 {
                     db.CloseConnection();
-                    LoadTasks(); // Instantly refresh the UI to show the new status!
+                    LoadTasks();
                 }
             }
         }
@@ -464,7 +502,7 @@ namespace BreachByte_SecurityBot
                 return;
             }
 
-            // Ask for confirmation before permanently deleting!
+            // Ask for confirmation before permanently deleting
             MessageBoxResult result = MessageBox.Show("Are you sure you want to permanently delete this task?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
@@ -477,7 +515,6 @@ namespace BreachByte_SecurityBot
                 {
                     try
                     {
-                        // Secure parameterized DELETE query
                         string query = "DELETE FROM cyber_tasks WHERE task_id = @id";
                         MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
                         cmd.Parameters.AddWithValue("@id", taskId);
@@ -497,13 +534,13 @@ namespace BreachByte_SecurityBot
         }
 
         // ==========================================
-        // QUICK ACCESS NAVIGATION BAR EVENTS
+        // QUICK ACCESS NAVIGATION BAR
         // ==========================================
 
         private void BtnNavQuiz_Click(object sender, RoutedEventArgs e)
         {
-            UserInputBox.Text = "start game"; 
-            SendButton_Click(null, null);     // Simulates the user clicking Send
+            UserInputBox.Text = "start game";
+            SendButton_Click(null, null);
         }
 
         private void BtnNavTopics_Click(object sender, RoutedEventArgs e)
@@ -514,7 +551,7 @@ namespace BreachByte_SecurityBot
 
         private void BtnNavLog_Click(object sender, RoutedEventArgs e)
         {
-            UserInputBox.Text = "show activity log"; // Change this if your log trigger word is different!
+            UserInputBox.Text = "show activity log";
             SendButton_Click(null, null);
         }
     }

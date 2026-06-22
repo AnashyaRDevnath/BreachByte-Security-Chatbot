@@ -21,9 +21,6 @@
     <None Update="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
-    <None Update="Sounds %28Quiz%29\applause.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Sounds %28Quiz%29\correct.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

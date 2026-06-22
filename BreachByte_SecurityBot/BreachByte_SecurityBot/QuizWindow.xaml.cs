@@ -1,50 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Media;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Media;
 
 namespace BreachByte_SecurityBot
 {
-    /// <summary>
-    /// Interaction logic for QuizWindow.xaml
-    /// </summary>
     public partial class QuizWindow : Window
     {
+        // ==========================================
+        // FIELDS
+        // ==========================================
+
         private List<CyberQuestions> questions;
         private int currentScore = 0;
         private int currentQuestionIndex = 0;
 
-      
-        
-        // This holds the final score 
+        // ==========================================
+        // PROPERTIES
+        // ==========================================
+
+        // Exposes the final score to MainWindow after the quiz closes
         public int FinalScore => currentScore;
 
-        // Tell it to accept the username from the chat
+        // ==========================================
+        // CONSTRUCTORS
+        // ==========================================
+
+        // Main constructor — accepts the username from the chat for a personalised title
         public QuizWindow(string userName)
         {
             InitializeComponent();
-
-            // Personalize the window title with the user's name!
             this.Title = $"Cybersecurity Training Simulator - Agent {userName}";
-
             LoadQuestions();
             DisplayQuestion();
         }
+
+        // Default constructor — used if no username is provided
         public QuizWindow()
         {
             InitializeComponent();
-          LoadQuestions();
+            LoadQuestions();
             DisplayQuestion();
         }
+
+        // ==========================================
+        // QUESTION LOADING
+        // ==========================================
+
+        // Populates the questions list with all quiz questions
         private void LoadQuestions()
         {
             questions = new List<CyberQuestions>
@@ -102,12 +108,18 @@ namespace BreachByte_SecurityBot
             };
         }
 
+        // ==========================================
+        // QUIZ LOGIC
+        // ==========================================
+
+        // Renders the current question and its answer controls
         private void DisplayQuestion()
         {
             FeedbackTextBlock.Visibility = Visibility.Collapsed;
             NextButton.Visibility = Visibility.Collapsed;
             AnswersPanel.Children.Clear();
 
+            // End the quiz if all questions have been answered
             if (currentQuestionIndex >= questions.Count)
             {
                 EndGame();
@@ -120,6 +132,7 @@ namespace BreachByte_SecurityBot
 
             if (q.Type == QuestionType.MultipleChoice || q.Type == QuestionType.TrueFalse)
             {
+                // Render a button for each answer option
                 foreach (string option in q.Options)
                 {
                     Button btn = new Button
@@ -137,6 +150,7 @@ namespace BreachByte_SecurityBot
             }
             else if (q.Type == QuestionType.FillInTheBlank)
             {
+                // Render a text box and submit button for fill-in-the-blank questions
                 TextBox answerBox = new TextBox
                 {
                     Margin = new Thickness(0, 5, 0, 10),
@@ -165,6 +179,7 @@ namespace BreachByte_SecurityBot
             }
         }
 
+        // Checks the user's answer, plays the appropriate sound, and shows feedback
         private void CheckAnswer(string userResponse)
         {
             CyberQuestions q = questions[currentQuestionIndex];
@@ -172,13 +187,11 @@ namespace BreachByte_SecurityBot
             if (userResponse.Equals(q.CorrectAnswer, StringComparison.OrdinalIgnoreCase))
             {
                 currentScore++;
-
                 PlayGameSound("correct.wav");
 
                 string cleanExplanation = q.Explanation.Replace("Correct! ", "");
                 FeedbackTextBlock.Text = "✔️ " + cleanExplanation;
                 FeedbackTextBlock.Foreground = Brushes.LimeGreen;
-
             }
             else
             {
@@ -201,12 +214,10 @@ namespace BreachByte_SecurityBot
             DisplayQuestion();
         }
 
+        // Displays the final score and a performance message when all questions are done
         private void EndGame()
         {
-            
-
             QuestionTextBlock.Text = "QUIZ COMPLETE!";
-            
             AnswersPanel.Children.Clear();
             NextButton.Visibility = Visibility.Collapsed;
             FeedbackTextBlock.Visibility = Visibility.Visible;
@@ -237,21 +248,22 @@ namespace BreachByte_SecurityBot
             AnswersPanel.Children.Add(closeBtn);
         }
 
+        // ==========================================
+        // AUDIO
+        // ==========================================
+
+        // Plays a sound from the Sounds (Quiz) folder. Fails silently if the file is missing.
         private void PlayGameSound(string fileName)
         {
             try
             {
-                string path = System.IO.Path.Combine(
-            AppDomain.CurrentDomain.BaseDirectory,
-            "Sounds (Quiz)",
-            fileName
-        );
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sounds (Quiz)", fileName);
                 SoundPlayer player = new SoundPlayer(path);
                 player.Play();
             }
             catch
             {
-                // If the sound file is missing, do nothing. The game continues safely
+                // If the sound file is missing, the game continues safely
             }
         }
     }
