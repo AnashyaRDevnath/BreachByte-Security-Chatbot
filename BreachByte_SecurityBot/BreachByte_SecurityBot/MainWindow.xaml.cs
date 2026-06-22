@@ -16,6 +16,10 @@ namespace BreachByte_SecurityBot
         //Instantiate BotBrain
         private BotBrain myBot;
 
+        // These tell the bot if it's currently in the middle of creating a task
+        private bool isWaitingForReminder = false;
+        private int currentPendingTaskId = -1;
+
         //Constructor
         public MainWindow()
         {
@@ -51,7 +55,7 @@ namespace BreachByte_SecurityBot
                 try
                 {
                     // 1. Write the SQL query to fetch the tasks
-                    string query = "SELECT task_id, title, is_completed FROM cyber_tasks";
+                    string query = "SELECT task_id, title, reminder_date, is_completed FROM cyber_tasks";
 
                     // 2. Package the query and the connection together
                     MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
@@ -80,7 +84,8 @@ namespace BreachByte_SecurityBot
         //Added async so the app can wait between letters
         private async void ProcessMessage()
         {
-            string userInput = UserInputBox.Text.ToLower();
+            string originalUserInput = UserInputBox.Text;
+            string userInput = originalUserInput.ToLower().Trim();
 
             if (string.IsNullOrWhiteSpace(userInput))
             {
@@ -93,7 +98,7 @@ namespace BreachByte_SecurityBot
 
             //Show user message
             TextBlock userText = new TextBlock();
-            userText.Text = $"{myBot.SavedUserName}: {userInput}";
+            userText.Text = $"{myBot.SavedUserName}: {originalUserInput}";
             userText.Foreground = System.Windows.Media.Brushes.Cyan; // Makes text Cyan!
             userText.Margin = new Thickness(0, 5, 0, 5);
             userText.TextWrapping = TextWrapping.Wrap;
@@ -102,13 +107,96 @@ namespace BreachByte_SecurityBot
             ChatHistoryPanel.Children.Add(userText);
             ChatScrollViewer.ScrollToEnd();
 
-            //Ask the BotBrain for an answer
-            string botAnswer = myBot.GetBotResponse(userInput);
+            // ==========================================
+            // 🚀 NEW: TASK INTERCEPTION & DATABASE LOGIC
+            // ==========================================
+            if (isWaitingForReminder)
+            {
+                // 1. Extract any numbers from their response (e.g., "in 3 days" or just "3" -> 3)
+                string numberOnly = new String(userInput.Where(Char.IsDigit).ToArray());
 
-            //Show the bot's answer (call typing method)
-            await TypeMessageAsync("BreachByte: ", botAnswer, System.Windows.Media.Brushes.LightGreen);
+                // 2. Did they say No?
+                if (userInput.Contains("no") && string.IsNullOrEmpty(numberOnly))
+                {
+                    await TypeMessageAsync("BreachByte: ", "No problem! Task saved without a reminder.", System.Windows.Media.Brushes.LightGreen);
+                    isWaitingForReminder = false;
+                    currentPendingTaskId = -1;
+                }
+                // 3. Did they provide a number? (Either "yes in 3 days" OR they are just answering "3")
+                else if (!string.IsNullOrEmpty(numberOnly) && int.TryParse(numberOnly, out int days))
+                {
+                    DateTime reminderDate = DateTime.Now.AddDays(days);
 
-            //exit logic (so app shuts down after user says bye
+                    DatabaseHelper db = new DatabaseHelper();
+                    if (db.OpenConnection())
+                    {
+                        string updateQuery = "UPDATE cyber_tasks SET reminder_date = @date WHERE task_id = @id";
+                        MySqlCommand cmd = new MySqlCommand(updateQuery, db.GetConnection());
+                        cmd.Parameters.AddWithValue("@date", reminderDate);
+                        cmd.Parameters.AddWithValue("@id", currentPendingTaskId);
+                        cmd.ExecuteNonQuery();
+                        db.CloseConnection();
+                    }
+
+                    await TypeMessageAsync("BreachByte: ", $"Got it! I'll remind you in {days} days.", System.Windows.Media.Brushes.LightGreen);
+
+                    // Reset state and refresh UI!
+                    isWaitingForReminder = false;
+                    currentPendingTaskId = -1;
+                    LoadTasks();
+                }
+                // 4. Did they say Yes, but forgot to give a number? (This fixes your screenshot issue!)
+                else if (userInput.Contains("yes") || userInput.Contains("please") || userInput.Contains("remind"))
+                {
+                    await TypeMessageAsync("BreachByte: ", "Awesome! In how many days would you like me to remind you? (e.g., type '3' or 'in 3 days')", System.Windows.Media.Brushes.LightGreen);
+                    // We use 'return' here so it DOES NOT reset the memory. It keeps waiting!
+                    return;
+                }
+                // 5. Bot is confused
+                else
+                {
+                    await TypeMessageAsync("BreachByte: ", "I didn't quite catch that. Would you like a reminder? (Type 'yes' or 'no')", System.Windows.Media.Brushes.LightGreen);
+                    return;
+                }
+            }
+            else if (userInput.StartsWith("add task -"))
+            {
+                // Extract the exact task name by removing "add task - "
+                int prefixLength = "add task - ".Length;
+                string taskTitle = originalUserInput.Substring(prefixLength).Trim();
+
+                // FIX: The description now dynamically uses whatever title you typed!
+                string taskDescription = $"Automated cybersecurity task: {taskTitle}";
+
+                DatabaseHelper db = new DatabaseHelper();
+                if (db.OpenConnection())
+                {
+                    string insertQuery = "INSERT INTO cyber_tasks (title, description) VALUES (@title, @desc); SELECT LAST_INSERT_ID();";
+                    MySqlCommand cmd = new MySqlCommand(insertQuery, db.GetConnection());
+                    cmd.Parameters.AddWithValue("@title", taskTitle);
+                    cmd.Parameters.AddWithValue("@desc", taskDescription);
+
+                    currentPendingTaskId = Convert.ToInt32(cmd.ExecuteScalar());
+                    db.CloseConnection();
+                }
+
+                isWaitingForReminder = true;
+                await TypeMessageAsync("BreachByte: ", $"Task added with the description \"{taskDescription}\". Would you like a reminder?", System.Windows.Media.Brushes.LightGreen);
+                LoadTasks();
+            }
+            // ==========================================
+            // 🤖 NORMAL CHATBOT LOGIC (PART 1 & 2)
+            // ==========================================
+            else
+            {
+                // Ask the BotBrain for an answer
+                string botAnswer = myBot.GetBotResponse(userInput);
+
+                // Show the bot's answer (call typing method)
+                await TypeMessageAsync("BreachByte: ", botAnswer, System.Windows.Media.Brushes.LightGreen);
+            }
+
+            //exit logic (so app shuts down after user says bye)
             if (userInput == "exit" || userInput == "quit" || userInput.Contains("bye"))
             {
                 // Wait for 2 seconds (2000 milliseconds) so they can read the goodbye
