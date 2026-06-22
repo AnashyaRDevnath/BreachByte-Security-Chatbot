@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using MySql.Data.MySqlClient;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Data;
-using MySql.Data.MySqlClient;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace BreachByte_SecurityBot
 {
@@ -18,7 +19,8 @@ namespace BreachByte_SecurityBot
         // NEW: Activity Log storage and state tracker
         private List<string> activityLog = new List<string>();
         private bool isWaitingForShowMore = false;
-        
+        private List<string> userTasks = new List<string>();
+
         //Instantiate BotBrain
         private BotBrain myBot;
 
@@ -262,6 +264,35 @@ namespace BreachByte_SecurityBot
             }
 
             // ==========================================
+            // 🧠 NEW: NLP TASK & REMINDER ENGINE (TASK 3)
+            // ==========================================
+
+            // 1. MATCHING REMINDERS: "Remind me to update my password tomorrow"
+            else if (Regex.IsMatch(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)"))
+            {
+                // \s* means "0 or more spaces" to catch messy typing
+                Match match = Regex.Match(userInput, @"(?i)(?:add|create|make|set)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do)(?:\s+for\s+me)?(?:\s+to)?\s*(.*)");
+
+                if (match.Success)
+                {
+                    string extractedTask = match.Groups[1].Value.Trim();
+
+                    // NEW: If the user types "add a task" but doesn't say WHAT the task is!
+                    if (string.IsNullOrEmpty(extractedTask))
+                    {
+                        await TypeMessageAsync("BreachByte: ", "I can certainly add a task for you! What would you like the task to be?", System.Windows.Media.Brushes.LightGreen);
+                        return;
+                    }
+
+                    userTasks.Add(extractedTask);
+                    LogActivity($"Task added: '{extractedTask}'");
+
+                    await TypeMessageAsync("BreachByte: ", $"Task added: '{extractedTask}'. Would you like to set a reminder for this?", System.Windows.Media.Brushes.LightGreen);
+                }
+                return;
+            }
+
+            // ==========================================
             // 🤖 NORMAL CHATBOT LOGIC (PART 1 & 2)
             // ==========================================
             else
@@ -463,6 +494,28 @@ namespace BreachByte_SecurityBot
                     }
                 }
             }
+        }
+
+        // ==========================================
+        // QUICK ACCESS NAVIGATION BAR EVENTS
+        // ==========================================
+
+        private void BtnNavQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            UserInputBox.Text = "start game"; 
+            SendButton_Click(null, null);     // Simulates the user clicking Send
+        }
+
+        private void BtnNavTopics_Click(object sender, RoutedEventArgs e)
+        {
+            UserInputBox.Text = "what can i ask";
+            SendButton_Click(null, null);
+        }
+
+        private void BtnNavLog_Click(object sender, RoutedEventArgs e)
+        {
+            UserInputBox.Text = "show activity log"; // Change this if your log trigger word is different!
+            SendButton_Click(null, null);
         }
     }
 }

@@ -92,7 +92,7 @@ namespace BreachByte_SecurityBot {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BreachByte_SecurityBot;component/quizwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BreachByte_SecurityBot;V1.0.0.0;component/quizwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\QuizWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

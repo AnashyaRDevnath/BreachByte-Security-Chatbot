@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace BreachByte_SecurityBot
 {
@@ -22,8 +23,7 @@ namespace BreachByte_SecurityBot
         private int currentScore = 0;
         private int currentQuestionIndex = 0;
 
-        private System.Windows.Media.MediaPlayer correctSoundPlayer = new System.Windows.Media.MediaPlayer();
-        private System.Windows.Media.MediaPlayer wrongSoundPlayer = new System.Windows.Media.MediaPlayer();
+      
         
         // This holds the final score 
         public int FinalScore => currentScore;
@@ -42,14 +42,7 @@ namespace BreachByte_SecurityBot
         public QuizWindow()
         {
             InitializeComponent();
-
-            string correctPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Sounds", "correct.mp3");
-            correctSoundPlayer.Open(new Uri(correctPath));
-
-            string wrongPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Sounds", "wrong.mp3");
-            wrongSoundPlayer.Open(new Uri(wrongPath));
-          
-            LoadQuestions();
+          LoadQuestions();
             DisplayQuestion();
         }
         private void LoadQuestions()
@@ -180,8 +173,7 @@ namespace BreachByte_SecurityBot
             {
                 currentScore++;
 
-                correctSoundPlayer.Stop();
-                correctSoundPlayer.Play();
+                PlayGameSound("correct.wav");
 
                 string cleanExplanation = q.Explanation.Replace("Correct! ", "");
                 FeedbackTextBlock.Text = "✔️ " + cleanExplanation;
@@ -190,8 +182,7 @@ namespace BreachByte_SecurityBot
             }
             else
             {
-                wrongSoundPlayer.Stop();
-                wrongSoundPlayer.Play();
+                PlayGameSound("wrong.wav");
 
                 string cleanExplanation = q.Explanation.Replace("Correct! ", "");
                 FeedbackTextBlock.Text = $"❌ Incorrect! The correct answer was: {q.CorrectAnswer}\n\n{cleanExplanation}";
@@ -244,6 +235,24 @@ namespace BreachByte_SecurityBot
             };
             closeBtn.Click += (s, e) => this.Close();
             AnswersPanel.Children.Add(closeBtn);
+        }
+
+        private void PlayGameSound(string fileName)
+        {
+            try
+            {
+                string path = System.IO.Path.Combine(
+            AppDomain.CurrentDomain.BaseDirectory,
+            "Sounds (Quiz)",
+            fileName
+        );
+                SoundPlayer player = new SoundPlayer(path);
+                player.Play();
+            }
+            catch
+            {
+                // If the sound file is missing, do nothing. The game continues safely
+            }
         }
     }
 }

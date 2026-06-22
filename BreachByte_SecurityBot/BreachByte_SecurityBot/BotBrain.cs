@@ -287,35 +287,45 @@ namespace BreachByte_SecurityBot
 
             //Check if the exact word exists in dictionary
 
-            //To reset trigger
+            // To reset trigger
             TopicJustTriggered = "";
 
             foreach (var key in knowledgeBase.Keys)
             {
-                if (input.Contains(key))
+                // 1. Split the dictionary key into individual words
+                string[] keywords = key.ToLower().Split(' ');
+                bool hasAllKeywords = true;
+
+                // 2. Check if EVERY word exists in the user's input
+                foreach (string word in keywords)
+                {
+                    if (!input.Contains(word))
+                    {
+                        hasAllKeywords = false;
+                        break; // Missing a word, move to the next dictionary key
+                    }
+                }
+
+                // 3. If all keywords matched, trigger the response!
+                if (hasAllKeywords)
                 {
                     LastDiscussedTopic = key;
-
-                    TopicJustTriggered = key; 
+                    TopicJustTriggered = key;
 
                     string[] possibleAnswers = knowledgeBase[key];
 
                     // Pick a random number based on how many answers we have
                     int randomIndex = randomiser.Next(possibleAnswers.Length);
 
-                    // Hold the answer in a temporary variable instead of returning it right away
+                    // Hold the answer in a temporary variable
                     string finalAnswer = possibleAnswers[randomIndex];
-
-                    // Inject the name from memory (Replaces [NAME] with whatever is saved)
                     finalAnswer = finalAnswer.Replace("[NAME]", SavedUserName);
 
-                    //Occasionally remind them of their favorite topic! (For Memory & Recall)
-                    if (!string.IsNullOrEmpty(FavoriteTopic) && randomiser.Next(100) < 45) //45% chance it will happen
+                    if (!string.IsNullOrEmpty(FavoriteTopic) && randomiser.Next(100) < 45)
                     {
                         finalAnswer += $"\n\n(Since you are interested in {FavoriteTopic}, you might want to review the security settings on your accounts!)";
                     }
 
-                    //Now return the fully customized answer!
                     return empatheticPrefix + finalAnswer;
                 }
             }
