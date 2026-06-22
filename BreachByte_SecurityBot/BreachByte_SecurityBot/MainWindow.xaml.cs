@@ -5,6 +5,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace BreachByte_SecurityBot
 {
@@ -13,12 +15,17 @@ namespace BreachByte_SecurityBot
     /// </summary>
     public partial class MainWindow : Window
     {
+        // NEW: Activity Log storage and state tracker
+        private List<string> activityLog = new List<string>();
+        private bool isWaitingForShowMore = false;
+        
         //Instantiate BotBrain
         private BotBrain myBot;
 
         // These tell the bot if it's currently in the middle of creating a task
         private bool isWaitingForReminder = false;
         private int currentPendingTaskId = -1;
+
 
         //Constructor
         public MainWindow()
@@ -42,11 +49,19 @@ namespace BreachByte_SecurityBot
             welcomeText.Text = "BreachByte: Welcome! How are you? What's your name?";
             welcomeText.Foreground = System.Windows.Media.Brushes.LightGreen;
             welcomeText.Margin = new Thickness(0, 5, 0, 15);
-            ChatHistoryPanel.Children.Add(welcomeText);
+            ChatHistoryPanel.Children.Add(welcomeText); 
+
+
         }
 
+        private void LogActivity(string description)
+        {
+            // Generates a timestamp like [15:22:34]
+            string timestamp = DateTime.Now.ToString("HH:mm:ss");
+            activityLog.Add($"[{timestamp}] {description}");
+        }
 
-            private void LoadTasks()
+        private void LoadTasks()
         {
             DatabaseHelper db = new DatabaseHelper();
 
@@ -186,17 +201,63 @@ namespace BreachByte_SecurityBot
             }
             else if (userInput == "quiz" || userInput == "start game")
             {
-                // 1. Pass Data IN: Send the bot's saved username to the Quiz Window
-                // (Make sure 'myBot.SavedUserName' matches whatever variable you used in Part 1!)
-                QuizWindow quiz = new QuizWindow(myBot.SavedUserName);
+                LogActivity("User initiated the Cybersecurity Training Simulator."); // <--- ADD THIS
 
-                // 2. Pauses the chat and opens the Quiz on top
+                QuizWindow quiz = new QuizWindow(myBot.SavedUserName);
                 quiz.ShowDialog();
 
-                // 3. Pass Data OUT: This code only runs AFTER the user clicks "CLOSE SIMULATOR"
-                // We pull the FinalScore property out and the bot comments on it:
-                await TypeMessageAsync("BreachByte: ", $"Welcome back, {myBot.SavedUserName}! I see you scored {quiz.FinalScore}/11 on the simulator. Your cybersecurity training is officially complete!", System.Windows.Media.Brushes.LightGreen);
+                LogActivity($"Quiz completed. Final Score: {quiz.FinalScore}/11."); // <--- ADD THIS
+                
+                
+                await TypeMessageAsync("BreachByte: ", $"Welcome back, {myBot.SavedUserName}! I see you scored {quiz.FinalScore}/11 on the simulator.", System.Windows.Media.Brushes.LightGreen);
+                return;
+            }
 
+            // ==========================================
+            // 📝 NEW: ACTIVITY LOG VIEWER
+            // ==========================================
+            else if (userInput == "show activity log" || userInput == "what have you done for me?")
+            {
+                LogActivity("User requested to view the activity log.");
+
+                if (activityLog.Count == 0)
+                {
+                    await TypeMessageAsync("BreachByte: ", "My activity log is currently empty. Try starting a quiz or asking me a question!", System.Windows.Media.Brushes.LightGreen);
+                    return;
+                }
+
+                // Grab ONLY the last 5 entries to keep it concise
+                int displayCount = Math.Min(5, activityLog.Count);
+                var recentLogs = activityLog.Skip(Math.Max(0, activityLog.Count - displayCount)).ToList();
+
+                string logMessage = "Here is a summary of my recent actions:\n\n";
+                for (int i = 0; i < recentLogs.Count; i++)
+                {
+                    logMessage += $"{i + 1}. {recentLogs[i]}\n";
+                }
+
+                // If there are more than 5 items, offer the 'show more' feature
+                if (activityLog.Count > 5)
+                {
+                    logMessage += "\n(Type 'show more' to see the full history)";
+                    isWaitingForShowMore = true; // Turn the flag on
+                }
+
+                await TypeMessageAsync("BreachByte: ", logMessage, System.Windows.Media.Brushes.LightGreen);
+                return;
+            }
+            // Handles the "show more" follow-up command
+            else if (userInput == "show more" && isWaitingForShowMore == true)
+            {
+                isWaitingForShowMore = false; // Turn the flag off so it doesn't trigger accidentally later
+
+                string logMessage = "Here is my complete activity history:\n\n";
+                for (int i = 0; i < activityLog.Count; i++)
+                {
+                    logMessage += $"{i + 1}. {activityLog[i]}\n";
+                }
+
+                await TypeMessageAsync("BreachByte: ", logMessage, System.Windows.Media.Brushes.LightGreen);
                 return;
             }
 
@@ -207,6 +268,12 @@ namespace BreachByte_SecurityBot
             {
                 // Ask the BotBrain for an answer
                 string botAnswer = myBot.GetBotResponse(userInput);
+
+                // If the brain lit up our bridge variable, log it!
+                if (myBot.TopicJustTriggered != "")
+                {
+                    LogActivity($"Provided NLP information on: {myBot.TopicJustTriggered}");
+                }
 
                 // Show the bot's answer (call typing method)
                 await TypeMessageAsync("BreachByte: ", botAnswer, System.Windows.Media.Brushes.LightGreen);

@@ -25,6 +25,9 @@ namespace BreachByte_SecurityBot
         //Tracks the last topic the bot answered (conversation flow)
         public string LastDiscussedTopic { get; set; } = "";
 
+        //Acts as abridge to tell MainWindow what just happened
+        public string TopicJustTriggered { get; set; } = "";
+
         //Declare the dictionary
         private Dictionary<string, string[]> knowledgeBase;  //while the key is a string, the value is an array of strings. A single text key will map to a collection of multiple strings (Microsoft, n.d)
 
@@ -283,11 +286,18 @@ namespace BreachByte_SecurityBot
             }
 
             //Check if the exact word exists in dictionary
+
+            //To reset trigger
+            TopicJustTriggered = "";
+
             foreach (var key in knowledgeBase.Keys)
             {
                 if (input.Contains(key))
                 {
                     LastDiscussedTopic = key;
+
+                    TopicJustTriggered = key; 
+
                     string[] possibleAnswers = knowledgeBase[key];
 
                     // Pick a random number based on how many answers we have

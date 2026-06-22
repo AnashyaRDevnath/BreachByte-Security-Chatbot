@@ -1,0 +1,41 @@
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\Sounds (Quiz)\applause.wav
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\Sounds (Quiz)\correct.wav
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\Sounds (Quiz)\wrong.wav
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\VoiceGreeting.wav
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BreachByte_SecurityBot.exe
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BreachByte_SecurityBot.deps.json
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BreachByte_SecurityBot.runtimeconfig.json
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BreachByte_SecurityBot.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BreachByte_SecurityBot.pdb
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\Google.Protobuf.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\K4os.Compression.LZ4.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\K4os.Hash.xxHash.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\MySql.Data.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\ZstdSharp.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\bin\Debug\net10.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.csproj.AssemblyReference.cache
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\AddTaskWindow.baml
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\MainWindow.baml
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\QuizWindow.baml
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\AddTaskWindow.g.cs
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\QuizWindow.g.cs
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot_MarkupCompile.cache
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.g.resources
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.AssemblyInfoInputs.cache
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.AssemblyInfo.cs
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.csproj.CoreCompileInputs.cache
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.sourcelink.json
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachBy.F90C4812.Up2Date
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\refint\BreachByte_SecurityBot.dll
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.pdb
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\BreachByte_SecurityBot.genruntimeconfig.cache
+C:\Users\Anash\OneDrive\Documents\Prog6221\prog6221-g1-2026-poe-Anashya4422\BreachByte_SecurityBot\BreachByte_SecurityBot\obj\Debug\net10.0-windows\ref\BreachByte_SecurityBot.dll
