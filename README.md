@@ -24,6 +24,23 @@ BreachByte is a cybersecurity education chatbot with a neon-terminal look and fe
 - **Database:** MySQL
 - **Version Control:** Git, GitHub
 
+## Screenshots
+
+**Main Terminal**
+![Main Terminal](screenshots/main-terminal.png)
+
+**Cybersecurity Quiz**
+![Quiz Screen](screenshots/quiz-screen.png)
+
+**Task Management via Natural Language**
+![Task Management](screenshots/task-management.png)
+
+**Empathetic Sentiment Response**
+![Sentiment Response](screenshots/sentiment-response.png)
+
+**Activity Log**
+![Activity Log](screenshots/activity-log.png)
+
 ## Setup
 
 **Software Requirements**
@@ -65,10 +82,6 @@ Interact with BreachByte using the Quick Access Navigation Bar, or by typing con
 - Malware & Ransomware — virus prevention basics
 - Identity Theft — signs of fraud and recovery steps
 
-## Screenshots
-
-*(add a few of your working action screenshots here)*
-
 ## Stage of the Project
 
 Complete — core logic, graphical interface, database integration, and gamified elements are fully implemented and integrated into a single cohesive application.
@@ -78,5 +91,4 @@ Complete — core logic, graphical interface, database integration, and gamified
 - Expand the quiz question bank with additional categories
 - Add automated unit tests for the NLP intent-extraction logic
 - Migrate local MySQL setup to a cloud-hosted database for easier demo access
-
   
