@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nYj4kYbQg6Q=",
+  "dgSpecHash": "k+LoWV1zBVY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
+  "projectFilePath": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anash\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\Anash\\.nuget\\packages\\google.protobuf\\3.32.0\\google.protobuf.3.32.0.nupkg.sha512",
@@ -18,9 +18,9 @@
       "code": "NU1510",
       "level": "Warning",
       "message": "PackageReference System.Windows.Extensions will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
-      "projectPath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
+      "projectPath": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
+      "filePath": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
       "libraryId": "System.Windows.Extensions",
       "targetGraphs": [
         "net10.0-windows7.0"

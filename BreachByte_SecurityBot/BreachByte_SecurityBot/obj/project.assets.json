@@ -344,11 +344,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
+      "projectUniqueName": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
       "projectName": "BreachByte_SecurityBot",
-      "projectPath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
+      "projectPath": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\BreachByte_SecurityBot.csproj",
       "packagesPath": "C:\\Users\\Anash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anash\\OneDrive\\Documents\\Prog6221\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\obj\\",
+      "outputPath": "C:\\Users\\Anash\\OneDrive\\Documents\\AnashyaRDevnath\\prog6221-g1-2026-poe-Anashya4422\\BreachByte_SecurityBot\\BreachByte_SecurityBot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
