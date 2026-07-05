@@ -8,7 +8,7 @@ namespace BreachByte_SecurityBot
     public class DatabaseHelper
     {
         // Local database credentials
-        private string connectionString = "Server=localhost;Port=3306;Database=BreachByteDB;Uid=root;Pwd=St10483180;";
+        private string connectionString = "Server=localhost;Port=3306;Database=BreachByteDB;Uid=root;Pwd=your_password;";
 
         private MySqlConnection connection;
 
